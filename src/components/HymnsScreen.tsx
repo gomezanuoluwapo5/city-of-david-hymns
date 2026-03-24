@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, Heart, ArrowLeft, Plus, Minus } from "lucide-react";
+import { Search, Heart, ArrowLeft, Plus, Minus, Music, ChevronDown, ChevronUp } from "lucide-react";
 import { hymns } from "@/data/hymns";
 import { isFavorite, toggleFavorite, setLastHymn, getFontSize } from "@/lib/store";
 
@@ -13,6 +13,8 @@ const HymnsScreen = ({ initialHymn }: HymnsScreenProps) => {
   const [selectedHymn, setSelectedHymn] = useState<number | null>(initialHymn ?? null);
   const [fontSize, setFontSizeLocal] = useState(getFontSize());
   const [, setTick] = useState(0);
+  const [showSolfa, setShowSolfa] = useState(false);
+  const [showChords, setShowChords] = useState(false);
 
   const filtered = hymns.filter(h =>
     h.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -39,7 +41,7 @@ const HymnsScreen = ({ initialHymn }: HymnsScreenProps) => {
       <div className="pb-24 max-w-lg mx-auto animate-fade-in">
         {/* Header */}
         <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-md border-b border-border px-4 py-3 flex items-center gap-3">
-          <button onClick={() => setSelectedHymn(null)} className="p-1.5 -ml-1 rounded-lg hover:bg-muted">
+          <button onClick={() => { setSelectedHymn(null); setShowSolfa(false); setShowChords(false); }} className="p-1.5 -ml-1 rounded-lg hover:bg-muted">
             <ArrowLeft size={20} />
           </button>
           <div className="flex-1 min-w-0">
@@ -68,7 +70,53 @@ const HymnsScreen = ({ initialHymn }: HymnsScreenProps) => {
           <div className="text-center mb-6">
             <h3 className="font-display font-bold text-lg text-foreground">{hymn.title}</h3>
             <p className="text-sm text-primary italic">{hymn.titleYoruba}</p>
+            {hymn.key && (
+              <p className="text-xs text-muted-foreground mt-1">
+                Key: {hymn.key} • {hymn.tempo}
+              </p>
+            )}
           </div>
+
+          {/* Musical Info Toggles */}
+          {(hymn.solfa || hymn.chords) && (
+            <div className="mb-4 space-y-2">
+              {hymn.solfa && (
+                <div className="rounded-xl border border-border overflow-hidden">
+                  <button
+                    onClick={() => setShowSolfa(!showSolfa)}
+                    className="w-full flex items-center gap-2 px-3 py-2.5 bg-muted/50 hover:bg-muted transition-colors text-left"
+                  >
+                    <Music size={16} className="text-primary shrink-0" />
+                    <span className="text-sm font-medium text-foreground flex-1">Solfa Notation</span>
+                    {showSolfa ? <ChevronUp size={16} className="text-muted-foreground" /> : <ChevronDown size={16} className="text-muted-foreground" />}
+                  </button>
+                  {showSolfa && (
+                    <div className="px-3 py-3 bg-card">
+                      <pre className="text-xs font-mono text-foreground whitespace-pre-wrap leading-relaxed">{hymn.solfa}</pre>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {hymn.chords && (
+                <div className="rounded-xl border border-border overflow-hidden">
+                  <button
+                    onClick={() => setShowChords(!showChords)}
+                    className="w-full flex items-center gap-2 px-3 py-2.5 bg-muted/50 hover:bg-muted transition-colors text-left"
+                  >
+                    <span className="text-primary font-bold text-xs shrink-0 w-4 text-center">♯</span>
+                    <span className="text-sm font-medium text-foreground flex-1">Chord Progression</span>
+                    {showChords ? <ChevronUp size={16} className="text-muted-foreground" /> : <ChevronDown size={16} className="text-muted-foreground" />}
+                  </button>
+                  {showChords && (
+                    <div className="px-3 py-3 bg-card">
+                      <pre className="text-xs font-mono text-foreground whitespace-pre-wrap leading-relaxed">{hymn.chords}</pre>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
 
           {hymn.verses.map((verse, i) => (
             <div key={i} className="mb-6">
@@ -97,6 +145,35 @@ const HymnsScreen = ({ initialHymn }: HymnsScreenProps) => {
               </div>
             </div>
           ))}
+
+          {/* Chorus */}
+          {hymn.chorus && (
+            <div className="mb-6">
+              <p className="text-xs font-semibold text-primary mb-2 uppercase tracking-wider">
+                ♪ Chorus
+              </p>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
+                  <p className="text-[10px] font-semibold text-primary uppercase tracking-wider mb-1.5">English</p>
+                  <p
+                    className="hymn-text text-foreground whitespace-pre-line font-medium"
+                    style={{ fontSize: `${fontSize}px`, lineHeight: 1.7 }}
+                  >
+                    {hymn.chorus.english}
+                  </p>
+                </div>
+                <div className="p-3 rounded-lg bg-accent/10 border border-accent/20">
+                  <p className="text-[10px] font-semibold text-accent uppercase tracking-wider mb-1.5">Yorùbá</p>
+                  <p
+                    className="hymn-text text-foreground whitespace-pre-line font-medium"
+                    style={{ fontSize: `${fontSize}px`, lineHeight: 1.7 }}
+                  >
+                    {hymn.chorus.yoruba}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
