@@ -1925,5 +1925,40 @@ export const hymns: Hymn[] = [
       english: "Hallelujah! Hallelujah!\nTo the Lamb upon the throne;\nHallelujah! Hallelujah!\nPraise Him, praise Him, Him alone!",
       yoruba: "Haleluya! Haleluya!\nFun Ọdọ-Agutan lori itẹ;\nHaleluya! Haleluya!\nYin I, yin I, On nikan!"
     }
+  },
+  {
+    number: 70,
+    title: "The Strife Is O'er, The Battle Done",
+    titleYoruba: "Ija Ti Pari, Ogun Ti Tan",
+    key: "C Major",
+    tempo: "Maestoso",
+    solfa: "s :s :s |m :f :s |l :s :f |m :- :- |\ns :s :s |l :l :s |f :m :r |d :- :- |\nd' :d' :t |l :s :l |s :f :m |r :- :- |\nm :f :s |l :s :f |m :r :r |d :- :- |",
+    chords: "C - F C | Am - G | C - F | G G7 C |\nC - F C | Dm - G | C/E F G | C - - |",
+    verses: [
+      {
+        english: "Alleluia! Alleluia! Alleluia!\nThe strife is o'er, the battle done;\nThe victory of life is won;\nThe song of triumph has begun:\nAlleluia!",
+        yoruba: "Haleluya! Haleluya! Haleluya!\nIja ti pari, ogun ti tan;\nIṣẹgun iyè ni a ti ṣẹgun;\nOrin iṣẹgun ti bẹrẹ:\nHaleluya!"
+      },
+      {
+        english: "The powers of death have done their worst,\nBut Christ their legions hath dispersed;\nLet shouts of holy joy outburst:\nAlleluia!",
+        yoruba: "Agbara iku ti ṣe ohun ti o buruju julọ,\nṢugbọn Kristi ti tú àwọn ọmọ-ogun wọn ka;\nJẹ ki ariwo ayọ mimọ ki o bu jade:\nHaleluya!"
+      },
+      {
+        english: "The three sad days are quickly sped;\nHe rises glorious from the dead;\nAll glory to our risen Head!\nAlleluia!",
+        yoruba: "Ọjọ mẹta ibanujẹ ti kọja lọ;\nO ji dide ninu oku pẹlu ogo;\nOgo ni fun Olori wa ti o ji dide!\nHaleluya!"
+      },
+      {
+        english: "He closed the yawning gates of hell;\nThe bars from heaven's high portals fell;\nLet hymns of praise His triumphs tell:\nAlleluia!",
+        yoruba: "O ti ẹnu-bode ọrun apadi;\nIdena ẹnu-bode ọrun ga wọ lulẹ;\nJẹ ki orin iyin sọ nipa iṣẹgun Rẹ:\nHaleluya!"
+      },
+      {
+        english: "Lord, by the stripes which wounded Thee,\nFrom death's dread sting Thy servants free,\nThat we may live and sing to Thee:\nAlleluia!",
+        yoruba: "Oluwa, nipa ọgbẹ ti o farapa fun wa,\nGba awọn iranṣẹ Rẹ kuro ninu iku,\nKi a le ye ki a si korin fun Ọ:\nHaleluya!"
+      }
+    ],
+    chorus: {
+      english: "Alleluia! Alleluia! Alleluia!\nPraise the Lord, the battle's won!\nAlleluia! Alleluia!\nVictory through God's own Son!",
+      yoruba: "Haleluya! Haleluya! Haleluya!\nYin Oluwa, ogun ti ṣẹgun!\nHaleluya! Haleluya!\nIṣẹgun nipasẹ Ọmọ Ọlọrun!"
+    }
   }
 ];
