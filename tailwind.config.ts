@@ -56,6 +56,7 @@ export default {
           gold: "hsl(var(--church-gold))",
           pink: "hsl(var(--church-pink))",
           blue: "hsl(var(--church-blue))",
+          navy: "hsl(var(--church-navy))",
           cream: "hsl(var(--church-cream))",
           warm: "hsl(var(--church-warm))",
         },
