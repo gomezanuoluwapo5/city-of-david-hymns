@@ -40,13 +40,13 @@ const HomeScreen = ({ onNavigate, onOpenHymn, onOpenBible }: HomeScreenProps) =>
           </div>
           
           {/* Church Name */}
-          <h1 className="text-2xl font-display text-white drop-shadow-lg tracking-wide text-center leading-tight">
+          <h1 className="text-3xl font-display font-bold text-white drop-shadow-lg tracking-wide text-center leading-snug" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
             City of David Covenant
           </h1>
-          <p className="text-lg font-display text-white drop-shadow-lg tracking-wide mt-1">
+          <p className="text-xl font-display font-bold text-white drop-shadow-lg tracking-wide mt-1" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
             Church of God
           </p>
-          <p className="text-[10px] font-body font-semibold text-white/70 uppercase tracking-[0.25em] mt-2">
+          <p className="text-xs font-body font-bold text-white/80 uppercase tracking-[0.3em] mt-3">
             CDCCG
           </p>
         </div>
