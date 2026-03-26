@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,41 +6,42 @@
 
 @layer base {
   :root {
-    --background: 30 25% 97%;
-    --foreground: 225 25% 12%;
+    --background: 40 30% 96%;
+    --foreground: 222 35% 15%;
 
-    --card: 30 20% 99%;
-    --card-foreground: 225 25% 12%;
+    --card: 40 25% 98%;
+    --card-foreground: 222 35% 15%;
 
-    --popover: 30 20% 99%;
-    --popover-foreground: 225 25% 12%;
+    --popover: 40 25% 98%;
+    --popover-foreground: 222 35% 15%;
 
-    --primary: 335 55% 48%;
+    --primary: 222 55% 28%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 30 25% 93%;
-    --secondary-foreground: 225 20% 20%;
+    --secondary: 40 30% 92%;
+    --secondary-foreground: 222 30% 20%;
 
-    --muted: 30 15% 94%;
-    --muted-foreground: 225 10% 46%;
+    --muted: 40 20% 93%;
+    --muted-foreground: 222 12% 48%;
 
-    --accent: 200 65% 42%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 38 75% 55%;
+    --accent-foreground: 222 55% 15%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 15% 89%;
-    --input: 30 15% 89%;
-    --ring: 335 55% 48%;
+    --border: 40 20% 88%;
+    --input: 40 20% 88%;
+    --ring: 222 55% 28%;
 
     --radius: 0.875rem;
 
     --church-gold: 38 75% 55%;
-    --church-pink: 335 60% 72%;
-    --church-blue: 200 65% 42%;
-    --church-cream: 30 25% 97%;
-    --church-warm: 25 25% 93%;
+    --church-pink: 340 55% 65%;
+    --church-blue: 222 55% 28%;
+    --church-navy: 222 55% 22%;
+    --church-cream: 40 30% 96%;
+    --church-warm: 35 30% 92%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -51,51 +52,52 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(335 55% 48%), hsl(350 60% 60%));
+    --gradient-primary: linear-gradient(135deg, hsl(222 55% 28%), hsl(222 50% 38%));
     --gradient-gold: linear-gradient(135deg, hsl(38 75% 55%), hsl(30 80% 62%));
-    --shadow-soft: 0 2px 16px -4px hsl(335 55% 48% / 0.12);
-    --shadow-card: 0 1px 3px 0 hsl(225 25% 12% / 0.04), 0 1px 2px -1px hsl(225 25% 12% / 0.04);
-    --shadow-elevated: 0 4px 24px -6px hsl(225 25% 12% / 0.1);
+    --shadow-soft: 0 2px 16px -4px hsl(222 55% 28% / 0.12);
+    --shadow-card: 0 1px 4px 0 hsl(222 35% 15% / 0.06), 0 2px 8px -2px hsl(222 35% 15% / 0.04);
+    --shadow-elevated: 0 8px 30px -8px hsl(222 35% 15% / 0.12);
   }
 
   .dark {
-    --background: 225 22% 8%;
-    --foreground: 30 15% 90%;
+    --background: 222 30% 7%;
+    --foreground: 40 20% 90%;
 
-    --card: 225 20% 12%;
-    --card-foreground: 30 15% 90%;
+    --card: 222 25% 11%;
+    --card-foreground: 40 20% 90%;
 
-    --popover: 225 20% 12%;
-    --popover-foreground: 30 15% 90%;
+    --popover: 222 25% 11%;
+    --popover-foreground: 40 20% 90%;
 
-    --primary: 335 55% 58%;
+    --primary: 222 50% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 225 18% 18%;
-    --secondary-foreground: 30 15% 82%;
+    --secondary: 222 22% 16%;
+    --secondary-foreground: 40 15% 82%;
 
-    --muted: 225 18% 16%;
-    --muted-foreground: 30 10% 52%;
+    --muted: 222 22% 14%;
+    --muted-foreground: 40 10% 52%;
 
-    --accent: 200 55% 52%;
+    --accent: 38 65% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 225 18% 18%;
-    --input: 225 18% 18%;
-    --ring: 335 55% 58%;
+    --border: 222 22% 16%;
+    --input: 222 22% 16%;
+    --ring: 222 50% 45%;
 
-    --church-gold: 38 70% 55%;
-    --church-pink: 335 50% 58%;
-    --church-blue: 200 55% 52%;
-    --church-cream: 225 22% 8%;
-    --church-warm: 225 18% 14%;
+    --church-gold: 38 70% 50%;
+    --church-pink: 340 45% 55%;
+    --church-blue: 222 50% 45%;
+    --church-navy: 222 45% 18%;
+    --church-cream: 222 30% 7%;
+    --church-warm: 222 22% 12%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(335 55% 58%), hsl(350 55% 65%));
-    --gradient-gold: linear-gradient(135deg, hsl(38 70% 55%), hsl(30 70% 62%));
-    --shadow-soft: 0 2px 16px -4px hsl(335 55% 58% / 0.2);
+    --gradient-primary: linear-gradient(135deg, hsl(222 50% 45%), hsl(222 45% 55%));
+    --gradient-gold: linear-gradient(135deg, hsl(38 70% 50%), hsl(30 65% 58%));
+    --shadow-soft: 0 2px 16px -4px hsl(222 50% 45% / 0.2);
     --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.15), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
     --shadow-elevated: 0 4px 24px -6px hsl(0 0% 0% / 0.3);
   }
@@ -149,7 +151,7 @@
   }
 
   .glass {
-    @apply bg-background/80 backdrop-blur-xl;
+    @apply bg-background/85 backdrop-blur-xl;
   }
 
   .glass-card {

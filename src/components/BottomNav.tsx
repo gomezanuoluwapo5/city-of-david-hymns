@@ -15,7 +15,7 @@ const tabs = [
 
 const BottomNav = ({ active, onNavigate }: BottomNavProps) => {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 glass border-t border-border/50 safe-bottom animate-slide-up">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-xl border-t border-border shadow-elevated safe-bottom animate-slide-up">
       <div className="flex items-center justify-around h-[68px] max-w-lg mx-auto px-2">
         {tabs.map((tab) => {
           const Icon = tab.icon;
@@ -36,7 +36,7 @@ const BottomNav = ({ active, onNavigate }: BottomNavProps) => {
               <div className={`transition-transform duration-200 ${isActive ? "scale-110 -translate-y-0.5" : ""}`}>
                 <Icon size={22} strokeWidth={isActive ? 2.5 : 1.8} />
               </div>
-              <span className={`text-[10px] transition-all ${isActive ? "font-bold" : "font-medium"}`}>
+              <span className={`text-[10px] font-body transition-all ${isActive ? "font-bold" : "font-medium"}`}>
                 {tab.label}
               </span>
             </button>
