@@ -120,3 +120,30 @@ export function toggleBookmark(ref: string): boolean {
   localStorage.setItem(KEYS.BOOKMARKS, JSON.stringify(bm));
   return idx < 0;
 }
+
+// Highlights
+export interface Highlight {
+  ref: string; // "Book:Chapter:Verse"
+  color: string; // highlight color key
+}
+
+export function getHighlights(): Highlight[] {
+  const raw = localStorage.getItem(KEYS.HIGHLIGHTS);
+  return raw ? JSON.parse(raw) : [];
+}
+
+export function setHighlight(ref: string, color: string): void {
+  const highlights = getHighlights().filter(h => h.ref !== ref);
+  if (color) highlights.push({ ref, color });
+  localStorage.setItem(KEYS.HIGHLIGHTS, JSON.stringify(highlights));
+}
+
+export function removeHighlight(ref: string): void {
+  const highlights = getHighlights().filter(h => h.ref !== ref);
+  localStorage.setItem(KEYS.HIGHLIGHTS, JSON.stringify(highlights));
+}
+
+export function getHighlight(ref: string): string | null {
+  const h = getHighlights().find(h => h.ref === ref);
+  return h ? h.color : null;
+}
