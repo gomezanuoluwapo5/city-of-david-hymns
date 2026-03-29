@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react";
-import { ArrowLeft, Bookmark, Loader2 } from "lucide-react";
+import { ArrowLeft, Bookmark, Loader2, Volume2 } from "lucide-react";
 import { bibleBooks } from "@/data/bible";
 import { fetchChapter, type BibleVerse } from "@/lib/bibleApi";
-import { setLastBible, getFontSize, toggleBookmark, getBookmarks } from "@/lib/store";
+import { setLastBible, getFontSize, getBookmarks } from "@/lib/store";
+import VerseItem from "@/components/bible/VerseItem";
+import BibleVoiceReader from "@/components/bible/BibleVoiceReader";
+import BibleBookmarks from "@/components/bible/BibleBookmarks";
 
 interface BibleScreenProps {
   initialBook?: string | null;
   initialChapter?: number | null;
 }
 
-type View = "books" | "chapters" | "reading";
+type View = "books" | "chapters" | "reading" | "bookmarks";
 
 const BibleScreen = ({ initialBook, initialChapter }: BibleScreenProps) => {
   const [view, setView] = useState<View>(initialBook ? "reading" : "books");
@@ -26,7 +29,6 @@ const BibleScreen = ({ initialBook, initialChapter }: BibleScreenProps) => {
   const otBooks = bibleBooks.filter(b => b.testament === "OT");
   const ntBooks = bibleBooks.filter(b => b.testament === "NT");
 
-  // Fetch verses when reading
   useEffect(() => {
     if (view !== "reading" || !selectedBook) return;
     let cancelled = false;
@@ -34,44 +36,34 @@ const BibleScreen = ({ initialBook, initialChapter }: BibleScreenProps) => {
     setError(null);
     
     fetchChapter(selectedBook, selectedChapter)
-      .then(data => {
-        if (!cancelled) {
-          setVerses(data);
-          setLoading(false);
-        }
-      })
-      .catch(err => {
-        if (!cancelled) {
-          setError("Unable to load verses. Check your connection.");
-          setLoading(false);
-        }
-      });
+      .then(data => { if (!cancelled) { setVerses(data); setLoading(false); } })
+      .catch(() => { if (!cancelled) { setError("Unable to load verses. Check your connection."); setLoading(false); } });
 
     return () => { cancelled = true; };
   }, [view, selectedBook, selectedChapter]);
 
-  const handleBookSelect = (name: string) => {
-    setSelectedBook(name);
-    setView("chapters");
-  };
-
-  const handleChapterSelect = (ch: number) => {
-    setSelectedChapter(ch);
-    setLastBible({ book: selectedBook, chapter: ch });
-    setView("reading");
-  };
+  const handleBookSelect = (name: string) => { setSelectedBook(name); setView("chapters"); };
+  const handleChapterSelect = (ch: number) => { setSelectedChapter(ch); setLastBible({ book: selectedBook, chapter: ch }); setView("reading"); };
 
   const goBack = () => {
     if (view === "reading") setView("chapters");
     else if (view === "chapters") setView("books");
+    else if (view === "bookmarks") setView("books");
   };
 
-  // Navigate between chapters
-  const goToChapter = (ch: number) => {
-    setSelectedChapter(ch);
-    setLastBible({ book: selectedBook, chapter: ch });
-    window.scrollTo(0, 0);
+  const goToChapter = (ch: number) => { setSelectedChapter(ch); setLastBible({ book: selectedBook, chapter: ch }); window.scrollTo(0, 0); };
+
+  const handleBookmarkNavigate = (book: string, chapter: number) => {
+    setSelectedBook(book);
+    setSelectedChapter(chapter);
+    setLastBible({ book, chapter });
+    setView("reading");
   };
+
+  // Bookmarks view
+  if (view === "bookmarks") {
+    return <BibleBookmarks onClose={goBack} onNavigate={handleBookmarkNavigate} />;
+  }
 
   // Reading view
   if (view === "reading") {
@@ -112,31 +104,19 @@ const BibleScreen = ({ initialBook, initialChapter }: BibleScreenProps) => {
 
         {!loading && !error && (
           <>
-            <div className="px-5 pt-5 space-y-4">
+            <div className="px-3 pt-5 space-y-1 relative">
               {verses.map((v) => {
                 const ref = `${selectedBook}:${selectedChapter}:${v.verse}`;
-                const isBookmarked = bookmarks.includes(ref);
                 return (
-                  <div key={v.verse} className="flex gap-3 group">
-                    <span className="text-xs font-bold text-primary mt-1.5 shrink-0 w-7 text-right tabular-nums">
-                      {v.verse}
-                    </span>
-                    <p
-                      className="bible-text text-foreground flex-1"
-                      style={{ fontSize: `${fontSize}px` }}
-                    >
-                      {v.text}
-                    </p>
-                    <button
-                      onClick={() => { toggleBookmark(ref); setTick(t => t + 1); }}
-                      className="opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity p-1.5 shrink-0 rounded-lg hover:bg-muted"
-                    >
-                      <Bookmark
-                        size={14}
-                        className={isBookmarked ? "fill-church-gold text-church-gold" : "text-muted-foreground"}
-                      />
-                    </button>
-                  </div>
+                  <VerseItem
+                    key={v.verse}
+                    verse={v}
+                    bookName={selectedBook}
+                    chapter={selectedChapter}
+                    fontSize={fontSize}
+                    isBookmarked={bookmarks.includes(ref)}
+                    onUpdate={() => setTick(t => t + 1)}
+                  />
                 );
               })}
             </div>
@@ -155,13 +135,16 @@ const BibleScreen = ({ initialBook, initialChapter }: BibleScreenProps) => {
               {selectedChapter < maxChapter && (
                 <button
                   onClick={() => goToChapter(selectedChapter + 1)}
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl gradient-primary text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity"
                 >
                   Ch {selectedChapter + 1}
                   <ArrowLeft size={16} className="rotate-180" />
                 </button>
               )}
             </div>
+
+            {/* Voice Reader */}
+            <BibleVoiceReader verses={verses} bookName={selectedBook} chapter={selectedChapter} />
           </>
         )}
       </div>
@@ -202,7 +185,16 @@ const BibleScreen = ({ initialBook, initialChapter }: BibleScreenProps) => {
   return (
     <div className="pb-24 max-w-lg mx-auto animate-fade-in">
       <div className="sticky top-0 z-10 glass px-5 pt-6 pb-4">
-        <h1 className="text-3xl font-display text-foreground mb-4">Bible</h1>
+        <div className="flex items-center justify-between mb-4">
+          <h1 className="text-3xl font-display text-foreground">Bible</h1>
+          <button
+            onClick={() => setView("bookmarks")}
+            className="flex items-center gap-2 px-3 py-2 rounded-xl bg-card border border-border shadow-card hover:shadow-elevated transition-all text-sm font-medium text-foreground"
+          >
+            <Bookmark size={16} className="text-accent" />
+            <span className="text-xs">Bookmarks</span>
+          </button>
+        </div>
         <div className="flex gap-2 p-1 bg-muted rounded-2xl">
           <button
             onClick={() => setTestament("OT")}
