@@ -7,6 +7,7 @@ const KEYS = {
   FONT_SIZE: 'cod_font_size',
   DARK_MODE: 'cod_dark_mode',
   BOOKMARKS: 'cod_bookmarks',
+  HIGHLIGHTS: 'cod_highlights',
 };
 
 export interface Note {
