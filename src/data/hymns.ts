@@ -17,8 +17,16 @@ export const hymns: Hymn[] = [
     titleYoruba: "Mimo, Mimo, Mimo",
     key: "D Major",
     tempo: "Moderato",
-    solfa: "d :d :d |m :m :m |s :s :f |m :- :- |\nd :d :d |f :f :f |m :m :r |d :- :- |\ns :s :s |l :l :l |s :s :f |m :- :- |\nd :m :s |l :s :f |m :r :r |d :- :- |",
-    chords: "D - G/D D | Bm - A | D - G | D/A A D |\nD - G D | Bm - Em A | D - G | D/A A D |",
+    solfa: "d :d |m :m |s :- |s :- |
+l :l |l :s |m :- :- |
+s :s |s :s |d' :t |
+s :r |s :l |s :s |
+d :d |m :m |s :- |s :- |
+l :l |l :l |s :m |
+d' :s |s :l |m |
+f :m |r :d |d :- :- |",
+    chords: "D - - | Bm - A | D - G | D/A A7 D |
+D - - | Bm - A | D - G | D/A A7 D |",
     verses: [
       {
         english: "Holy, holy, holy! Lord God Almighty!\nEarly in the morning our song shall rise to Thee;\nHoly, holy, holy, merciful and mighty!\nGod in three Persons, blessèd Trinity!",
@@ -43,9 +51,10 @@ export const hymns: Hymn[] = [
     title: "Let Us with a Gladsome Mind",
     titleYoruba: "E Je Ka Fi Ayo Okan",
     key: "G Major",
-    tempo: "Allegretto",
-    solfa: "s :s :s |m :m :d |r :r :m |f :- :- |\nm :m :f |s :s :l |s :f :m |r :- :- |",
-    chords: "G - C G | D - G | Em - C D | G - D G |",
+    tempo: "Andante",
+    solfa: "d :d |r :m |f :m |r :- |
+d :d |r :m |r :t, |d :- |",
+    chords: "G - C G | D - G | G - C G | D7 - G |",
     verses: [
       {
         english: "Let us with a gladsome mind\nPraise the Lord, for He is kind;\nFor His mercies aye endure,\nEver faithful, ever sure.",
@@ -83,8 +92,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Kini Le We Ese Mi Nu",
     key: "Ab Major",
     tempo: "Moderato",
-    solfa: "d :m :s |s :f :m |r :m :f |m :- :- |\nd :m :s |s :l :s |f :m :r |d :- :- |",
-    chords: "Ab - Db Ab | Eb - Ab | Db - Ab/Eb Eb | Ab - - |",
+    solfa: "m :s |s :f |m :r |d :- |
+m :s |s :f |m :r |d :- |",
+    chords: "Ab - Db Ab | Eb - Ab | Ab - Db Ab | Eb7 - Ab |",
     verses: [
       {
         english: "What can wash away my sin?\nNothing but the blood of Jesus;\nWhat can make me whole again?\nNothing but the blood of Jesus.",
@@ -114,8 +124,15 @@ export const hymns: Hymn[] = [
     titleYoruba: "Nigba Ti A Ba Rin Pelu Oluwa",
     key: "Eb Major",
     tempo: "Moderato",
-    solfa: "s :s :l |s :m :d |r :m :f |m :- :- |\ns :s :l |s :m :d |r :r :m |d :- :- |",
-    chords: "Eb - Ab Eb | Bb - Eb | Ab - Eb/Bb Bb | Eb - - |",
+    solfa: "d :r |m :m |r :d |
+m :f |s :s |f :m |
+m :m |m :f |l |
+f :m |s :m |r |
+d :r |m :m |r :d |
+m :f |s :s |f :m |
+m :m |f :l |
+f :m |d :r |d :- |",
+    chords: "Eb - Ab Eb | Bb7 - Eb | Ab - Eb Bb7 | Eb - - |",
     verses: [
       {
         english: "When we walk with the Lord\nIn the light of His word,\nWhat a glory He sheds on our way!\nWhile we do His good will,\nHe abides with us still,\nAnd with all who will trust and obey.",
@@ -149,8 +166,12 @@ export const hymns: Hymn[] = [
     titleYoruba: "Olorun, Iranlowo Wa Lati Igba Atijo",
     key: "C Major",
     tempo: "Maestoso",
-    solfa: "d :d :r |m :m :r |d :d :t, |d :- :- |\nm :m :f |s :s :f |m :r :r |d :- :- |",
-    chords: "C - F C | G - Am F | C - G | C - - |",
+    solfa: "d :d |r :m |m :r |
+d :d |t, :d |d :- |
+m :m |f :s |s :f |
+m :r |d :r |d :- |",
+    chords: "C - F C | G - Am | C/G - G | C - - |
+C - F C | G - Am | C - G7 | C - - |",
     verses: [
       {
         english: "O God, our help in ages past,\nOur hope for years to come,\nOur shelter from the stormy blast,\nAnd our eternal home!",
@@ -184,8 +205,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Tele Nikan",
     key: "F Major",
     tempo: "Moderato",
-    solfa: "d :m :s |l :s :f |m :f :s |f :m :r |\nd :m :s |l :s :f |m :r :r |d :- :- |",
-    chords: "F - Bb F | C - F | Bb - F/C C | F - - |",
+    solfa: "d :m |s :l |s :f |
+m :f |s :f |m :r |
+d :m |s :l |s :f |
+m :r |r :d |d :- |",
+    chords: "F - Bb F | C7 - F | Bb - F/C C7 | F - - |",
     verses: [
       {
         english: "Just obey, just obey,\nWhen the Lord commands you, just obey;\nNever stop to question, never pause to reason,\nWhen the Lord commands you, just obey.",
@@ -207,8 +231,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "E Josin Fun Oba",
     key: "D Major",
     tempo: "Maestoso",
-    solfa: "d :m :s |s :f :m |r :m :f |m :- :- |\nm :s :d' |t :l :s |f :m :r |d :- :- |",
-    chords: "D - G D | A - D | G - D/A A | D - - |",
+    solfa: "s :s |f :m |r :m |f :m :- |
+m :s |d' :t |l :s |s :- |
+s :s |f :m |l :l |s :- |
+d' :s |l :s |f :m |r :d :- |",
+    chords: "D - G D | A7 - D | G - D/A A7 | D - - |",
     verses: [
       {
         english: "O worship the King, all-glorious above,\nO gratefully sing His power and His love;\nOur shield and Defender, the Ancient of Days,\nPavilioned in splendor, and girded with praise.",
@@ -234,8 +261,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Ojo Ayo",
     key: "G Major",
     tempo: "Allegro",
-    solfa: "s :s :l |s :m :d |d :r :m |r :- :- |\nm :f :s |l :s :f |m :r :r |d :- :- |",
-    chords: "G - C G | D - G | C - G/D D | G - - |",
+    solfa: "s :s |l :s |m :d |
+d :r |m :r |r :- |
+m :f |s :l |s :f |
+m :r |r :d |d :- |",
+    chords: "G - C G | D7 - G | C - G/D D7 | G - - |",
     verses: [
       {
         english: "O happy day that fixed my choice\nOn Thee, my Savior and my God!\nWell may this glowing heart rejoice,\nAnd tell its raptures all abroad.",
@@ -265,8 +295,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Nipa Ife Olorun Olugbala Wa",
     key: "F Major",
     tempo: "Andante",
-    solfa: "d :m :f |s :l :s |f :m :r |d :- :- |\nd :m :f |s :l :t |d' :t :l |s :- :- |",
-    chords: "F - Bb F | C - F | Bb - C | F - - |",
+    solfa: "d :m |f :s |l :s |
+f :m |r :d |d :- |
+d :m |f :s |l :t |
+d' :t |l :s |s :- |",
+    chords: "F - Bb F | C7 - F | Bb - C7 | F - - |",
     verses: [
       {
         english: "Through the love of God our Savior,\nAll will be well;\nFree and changeless is His favor,\nAll, all is well.",
@@ -292,8 +325,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Ko Si Ore Bi Jesu Onirele",
     key: "Ab Major",
     tempo: "Moderato",
-    solfa: "d :m :s |l :s :f |m :m :f |s :- :- |\ns :l :s |f :m :r |d :r :m |d :- :- |",
-    chords: "Ab - Db Ab | Eb - Ab | Db - Ab/Eb Eb | Ab - - |",
+    solfa: "d :m |s :l |s :f |
+m :m |f :s |s :- |
+s :l |s :f |m :r |
+d :r |m :d |d :- |",
+    chords: "Ab - Db Ab | Eb7 - Ab | Db - Ab/Eb Eb7 | Ab - - |",
     verses: [
       {
         english: "There's not a friend like the lowly Jesus,\nNo, not one! No, not one!\nNone else could heal all our soul's diseases,\nNo, not one! No, not one!",
@@ -327,8 +363,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Nla Ni Igbagbo Re",
     key: "D Major",
     tempo: "Moderato",
-    solfa: "d :m :s |s :f :m |l :l :s |f :m :r |\nd :m :s |l :s :f |m :r :r |d :- :- |",
-    chords: "D - G D | Bm - A | D - G | D/A A D |",
+    solfa: "d :d |m :s |s :- |f :m |
+l :l |l :s |f :m |r :- |
+d :d |m :s |l :s |f |
+m :r |d :r |d :- :- |",
+    chords: "D - G D | Bm - Em A7 | D - G | D/A A7 D |",
     verses: [
       {
         english: "Great is Thy faithfulness, O God my Father;\nThere is no shadow of turning with Thee;\nThou changest not, Thy compassions, they fail not;\nAs Thou hast been, Thou forever wilt be.",
@@ -354,8 +393,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "E Je Ka Dupe Lowo Olorun Wa",
     key: "F Major",
     tempo: "Maestoso",
-    solfa: "d :d :r |m :m :f |s :s :f |m :- :- |\nm :m :f |s :l :s |f :m :r |d :- :- |",
-    chords: "F - Bb F | C - Dm | Bb - F/C C | F - - |",
+    solfa: "d :d |d :r |m :m |f |
+s :s |s :f |m :- :- |
+m :m |f :s |l :s |
+f :m |r :d |d :- :- |",
+    chords: "F - Bb F | C - Dm | Bb - F/C C7 | F - - |",
     verses: [
       {
         english: "Now thank we all our God,\nWith heart and hands and voices,\nWho wondrous things has done,\nIn whom His world rejoices;\nWho from our mothers' arms\nHas blessed us on our way\nWith countless gifts of love,\nAnd still is ours today.",
@@ -377,8 +419,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Ba Mi Gbe",
     key: "Eb Major",
     tempo: "Adagio",
-    solfa: "s :s :s |l :s :f |m :f :s |f :- :- |\nm :m :f |s :l :s |s :f :f |m :- :- |",
-    chords: "Eb - Ab Eb | Bb - Eb | Ab - Eb/Bb Bb | Eb - - |",
+    solfa: "s :s |s :l |s :f |
+m :f |s :f |f :- |
+m :m |f :s |l :s |
+s :f |m :f |m :- |",
+    chords: "Eb - Ab Eb | Cm - Fm Bb7 | Eb - Ab Eb | Cm - Bb7 Eb |",
     verses: [
       {
         english: "Abide with me; fast falls the eventide;\nThe darkness deepens; Lord, with me abide.\nWhen other helpers fail and comforts flee,\nHelp of the helpless, O abide with me.",
@@ -408,8 +453,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Mo N Tẹsiwaju Ni Ona Oke",
     key: "G Major",
     tempo: "Allegro",
-    solfa: "s :s :l |s :m :d |r :m :f |m :- :- |\nm :f :s |l :s :f |m :r :r |d :- :- |",
-    chords: "G - C G | D - Em | C - G/D D | G - - |",
+    solfa: "s :s |l :s |m :d |
+r :m |f :m |m :- |
+m :f |s :l |s :f |
+m :r |d :r |d :- |",
+    chords: "G - C G | D7 - Em | C - G/D D7 | G - - |",
     verses: [
       {
         english: "I'm pressing on the upward way,\nNew heights I'm gaining every day;\nStill praying as I'm onward bound,\nLord, plant my feet on higher ground.",
@@ -439,8 +487,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Nisiyi E Je Ka Dupẹ",
     key: "F Major",
     tempo: "Maestoso",
-    solfa: "d :d :r |m :m :f |s :s :f |m :- :- |",
-    chords: "F - Bb F | C - Dm | Bb - F/C C | F - - |",
+    solfa: "d :d |d :r |m :m |f |
+s :s |s :f |m :- :- |",
+    chords: "F - Bb F | C - Dm | Bb - F/C C7 | F - - |",
     verses: [
       {
         english: "Now thank we all our God,\nWith heart and hands and voices,\nWho wondrous things has done,\nIn whom His world rejoices;\nWho from our mothers' arms\nHas blessed us on our way\nWith countless gifts of love,\nAnd still is ours today.",
@@ -458,8 +507,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Lọ, Aigbagbọ",
     key: "Bb Major",
     tempo: "Andante",
-    solfa: "d :m :s |s :f :m |r :r :m |f :- :- |\nm :s :l |s :f :m |r :d :r |d :- :- |",
-    chords: "Bb - Eb Bb | F - Bb | Eb - Bb/F F | Bb - - |",
+    solfa: "d :m |s :s |f :m |
+r :r |m :f |f :- |
+m :s |l :s |f :m |
+r :d |r :d |d :- |",
+    chords: "Bb - Eb Bb | F7 - Bb | Eb - Bb/F F7 | Bb - - |",
     verses: [
       {
         english: "Begone, unbelief, my Savior is near,\nAnd for my relief will surely appear;\nBy prayer let me wrestle, and He will perform;\nWith Christ in the vessel, I smile at the storm.",
@@ -485,8 +537,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Alejò Kan Wà Ni Ẹnu Ilẹkun",
     key: "G Major",
     tempo: "Moderato",
-    solfa: "s :s :s |m :m :d |r :m :f |m :- :- |\ns :l :s |f :m :r |d :r :m |d :- :- |",
-    chords: "G - C G | D - G | C - G/D D | G - - |",
+    solfa: "s :s |s :m |m :d |
+r :m |f :m |m :- |
+s :l |s :f |m :r |
+d :r |m :d |d :- |",
+    chords: "G - C G | D7 - G | C - G/D D7 | G - - |",
     verses: [
       {
         english: "There's a Stranger at the door,\nLet Him in;\nHe has been there oft before,\nLet Him in;\nLet Him in, ere He is gone,\nLet Him in, the Holy One,\nJesus Christ, the Father's Son,\nLet Him in.",
@@ -516,8 +571,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Gẹgẹ Bi Ọlọrun Ti Njọba Loke",
     key: "C Major",
     tempo: "Andante",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |",
-    chords: "C - F C | G - Am | F - G | C - - |",
+    solfa: "d :m |s :s |l :s |
+f :m |r :d |d :- |",
+    chords: "C - F C | G7 - Am | F - G7 | C - - |",
     verses: [
       {
         english: "Just as God who reigns on high\nSent His Son for man to die,\nSo we ought to live and love,\nFollowing patterns from above.",
@@ -535,8 +591,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Ẹ Dide, Ẹ Dide Fun Jesu",
     key: "Bb Major",
     tempo: "Maestoso",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |\nm :f :s |l :s :f |m :r :r |d :- :- |",
-    chords: "Bb - Eb Bb | F - Bb | Eb - Bb/F F | Bb - - |",
+    solfa: "s, :d |r :m |r :d |
+l, :d |d :r |d :- |
+m :s |d' :t |l :s |
+f :m |r :d |d :- |",
+    chords: "Bb - Eb Bb | F7 - Bb | Eb - Bb/F F7 | Bb - - |",
     verses: [
       {
         english: "Stand up, stand up for Jesus,\nYe soldiers of the cross;\nLift high His royal banner,\nIt must not suffer loss.\nFrom victory unto victory\nHis army shall He lead,\nTill every foe is vanquished,\nAnd Christ is Lord indeed.",
@@ -562,8 +621,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Jesu N Pe Wa Lori Ariwo",
     key: "D Major",
     tempo: "Moderato",
-    solfa: "d :m :s |s :f :m |r :m :f |m :- :- |",
-    chords: "D - G D | A - Bm | G - D/A A | D - - |",
+    solfa: "d :m |s :s |f :m |
+r :m |f :m |m :- |",
+    chords: "D - G D | A7 - Bm | G - D/A A7 | D - - |",
     verses: [
       {
         english: "Jesus calls us o'er the tumult\nOf our life's wild, restless sea;\nDay by day His sweet voice soundeth,\nSaying, 'Christian, follow Me!'",
@@ -593,8 +653,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Gba Aye Mi Ki O Si Je",
     key: "C Major",
     tempo: "Andante",
-    solfa: "d :m :s |l :s :f |m :f :s |f :m :r |\nd :m :s |l :s :f |m :r :r |d :- :- |",
-    chords: "C - F C | Am - G | F - C/G G | C - - |",
+    solfa: "d :d |d :r |m :m |
+m :f |s :s |s :- |
+l :l |s :s |m :m |
+r :r |d :r |d :- |",
+    chords: "C - F C | Am - G | F - C/G G7 | C - - |",
     verses: [
       {
         english: "Take my life and let it be\nConsecrated, Lord, to Thee.\nTake my moments and my days,\nLet them flow in ceaseless praise.",
@@ -628,8 +691,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Jesu, Mo Ti Gbe Agbelebu Mi",
     key: "Eb Major",
     tempo: "Moderato",
-    solfa: "s :s :l |s :m :d |r :m :f |m :- :- |",
-    chords: "Eb - Ab Eb | Bb - Cm | Ab - Eb/Bb Bb | Eb - - |",
+    solfa: "s :s |l :s |m :d |
+r :m |f :m |m :- |",
+    chords: "Eb - Ab Eb | Bb7 - Cm | Ab - Eb/Bb Bb7 | Eb - - |",
     verses: [
       {
         english: "Jesus, I my cross have taken,\nAll to leave and follow Thee;\nDestitute, despised, forsaken,\nThou, from hence, my all shalt be.\nPerish every fond ambition,\nAll I've sought and hoped and known;\nYet how rich is my condition,\nGod and Heaven are still my own!",
@@ -651,8 +715,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Ohun Ti O Mi Sori Edeni",
     key: "F Major",
     tempo: "Andante",
-    solfa: "d :m :f |s :l :s |f :m :r |d :- :- |",
-    chords: "F - Bb F | C - Dm | Bb - F/C C | F - - |",
+    solfa: "d :m |f :s |l :s |
+f :m |r :d |d :- |",
+    chords: "F - Bb F | C7 - Dm | Bb - F/C C7 | F - - |",
     verses: [
       {
         english: "The voice that breathed o'er Eden,\nThat earliest wedding day,\nThe primal marriage blessing,\nIt hath not passed away.",
@@ -678,8 +743,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Jesu, A Ti Pejọ",
     key: "G Major",
     tempo: "Moderato",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |",
-    chords: "G - C G | D - Em | C - G/D D | G - - |",
+    solfa: "d :m |s :s |l :s |
+f :m |r :d |d :- |",
+    chords: "G - C G | D7 - Em | C - G/D D7 | G - - |",
     verses: [
       {
         english: "Jesus, we are assembled,\nIn Thy Name we meet;\nBless us with Thy presence,\nMake our joy complete.",
@@ -701,8 +767,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Jesu Fẹ Mi, Eyi Ni Mo Mọ",
     key: "C Major",
     tempo: "Allegretto",
-    solfa: "d :d :m |s :s :m |f :f :m |r :- :- |\nd :d :m |s :s :m |r :r :r |d :- :- |",
-    chords: "C - - | F - C | G - C | F - G C |",
+    solfa: "d :d |d :m |s :s |m |
+f :f |f :m |r :- :- |
+d :d |d :m |s :s |m |
+r :r |d :r |d :- :- |",
+    chords: "C - - | F - C | G7 - C | F - G7 C |",
     verses: [
       {
         english: "Jesus loves me! This I know,\nFor the Bible tells me so;\nLittle ones to Him belong;\nThey are weak, but He is strong.",
@@ -728,8 +797,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Kini Le Wẹ Ẹsẹ Mi Nu (II)",
     key: "Ab Major",
     tempo: "Moderato",
-    solfa: "d :m :s |s :f :m |r :m :f |m :- :- |",
-    chords: "Ab - Db Ab | Eb - Ab | Db - Ab/Eb Eb | Ab - - |",
+    solfa: "m :s |s :f |m :r |d :- |
+m :s |s :f |m :r |d :- |",
+    chords: "Ab - Db Ab | Eb7 - Ab | Db - Ab/Eb Eb7 | Ab - - |",
     verses: [
       {
         english: "What can wash away my sin?\nNothing but the blood of Jesus;\nWhat can make me whole again?\nNothing but the blood of Jesus.",
@@ -759,8 +829,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Ijọba Rẹ De, Ọlọrun",
     key: "D Minor",
     tempo: "Adagio",
-    solfa: "d :r :m |f :m :r |d :r :m |r :- :- |",
-    chords: "Dm - Gm Dm | A - Dm | Gm - Dm/A A | Dm - - |",
+    solfa: "d :r |m :f |m :r |
+d :r |m :r |r :- |",
+    chords: "Dm - Gm Dm | A7 - Dm | Gm - Dm/A A7 | Dm - - |",
     verses: [
       {
         english: "Thy kingdom come, O God,\nThy rule, O Christ, begin;\nBreak with Thine iron rod\nThe tyrannies of sin.",
@@ -786,8 +857,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Ni Owurọ Ajinde",
     key: "D Major",
     tempo: "Allegro",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |",
-    chords: "D - G D | A - Bm | G - D/A A | D - - |",
+    solfa: "d :m |s :s |l :s |
+f :m |r :d |d :- |",
+    chords: "D - G D | A7 - Bm | G - D/A A7 | D - - |",
     verses: [
       {
         english: "On the resurrection morning,\nSoul and body meet again;\nNo more sorrow, no more weeping,\nNo more pain.",
@@ -813,8 +885,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Olugbala Olufẹ, Gbọ Igbe Mi",
     key: "F Major",
     tempo: "Adagio",
-    solfa: "d :m :f |s :l :s |f :m :r |d :- :- |",
-    chords: "F - Bb F | C - Dm | Bb - F/C C | F - - |",
+    solfa: "d :m |f :s |l :s |
+f :m |r :d |d :- |",
+    chords: "F - Bb F | C7 - Dm | Bb - F/C C7 | F - - |",
     verses: [
       {
         english: "Loving Savior, hear my cry,\nBe Thou near when death is nigh;\nHold me close beneath Thy wing,\nTill the dawn of heaven I sing.",
@@ -836,8 +909,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Ọkan Ti O Ni Wahala, Ile Kan Wa",
     key: "Eb Major",
     tempo: "Andante",
-    solfa: "s :s :l |s :m :d |r :m :f |m :- :- |",
-    chords: "Eb - Ab Eb | Bb - Cm | Ab - Eb/Bb Bb | Eb - - |",
+    solfa: "s :s |l :s |m :d |
+r :m |f :m |m :- |",
+    chords: "Eb - Ab Eb | Bb7 - Cm | Ab - Eb/Bb Bb7 | Eb - - |",
     verses: [
       {
         english: "O troubled heart, there is a home\nBeyond the reach of toil and care;\nA home where changes never come;\nWho would not fain be resting there?",
@@ -855,8 +929,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Yin, Ọkan Mi, Ọba Ọrun",
     key: "D Major",
     tempo: "Maestoso",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |\nm :f :s |l :s :f |m :r :r |d :- :- |",
-    chords: "D - G D | A - Bm | G - D/A A | D - - |",
+    solfa: "d :m |s :l |s :m |
+d :m |f :m |r :- |
+m :f |s :l |t :d' |
+t :l |s :l |s :- |",
+    chords: "D - G D | A7 - Bm | G - D/A A7 | D - - |",
     verses: [
       {
         english: "Praise, my soul, the King of heaven;\nTo His feet thy tribute bring.\nRansomed, healed, restored, forgiven,\nEvermore His praises sing:\nAlleluia! Alleluia!\nPraise the everlasting King.",
@@ -882,8 +959,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Gba Awon Ti N Segbe",
     key: "Ab Major",
     tempo: "Moderato",
-    solfa: "d :m :s |l :s :f |m :f :s |f :m :r |",
-    chords: "Ab - Db Ab | Eb - Ab | Db - Ab/Eb Eb | Ab - - |",
+    solfa: "d :m |s :l |s :f |
+m :f |s :f |m :r |
+d :m |s :l |s :f |
+m :r |d :r |d :- |",
+    chords: "Ab - Db Ab | Eb7 - Ab | Db - Ab/Eb Eb7 | Ab - - |",
     verses: [
       {
         english: "Rescue the perishing, care for the dying,\nSnatch them in pity from sin and the grave;\nWeep o'er the erring one, lift up the fallen,\nTell them of Jesus, the mighty to save.",
@@ -913,8 +993,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Awon Ti O Gbẹkẹle Oluwa",
     key: "G Major",
     tempo: "Moderato",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |",
-    chords: "G - C G | D - Em | C - G/D D | G - - |",
+    solfa: "d :m |s :s |l :s |
+f :m |r :d |d :- |",
+    chords: "G - C G | D7 - Em | C - G/D D7 | G - - |",
     verses: [
       {
         english: "They that trust in the Lord are secure,\nThey shall never be put to shame;\nThey that trust in the Lord shall endure,\nBlessed forever be His Name.",
@@ -932,8 +1013,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Nisisiyi Isẹ Osisẹ Ti Pari",
     key: "Eb Major",
     tempo: "Adagio",
-    solfa: "s :s :l |s :m :d |r :m :f |m :- :- |",
-    chords: "Eb - Ab Eb | Bb - Cm | Ab - Eb/Bb Bb | Eb - - |",
+    solfa: "s :s |l :s |m :d |
+r :m |f :m |m :- |",
+    chords: "Eb - Ab Eb | Bb7 - Cm | Ab - Eb/Bb Bb7 | Eb - - |",
     verses: [
       {
         english: "Now the laborer's task is o'er;\nNow the battle day is past;\nNow upon the farther shore\nLands the voyager at last.",
@@ -959,8 +1041,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Agbara Wa Ninu Ẹjẹ Jesu",
     key: "G Major",
     tempo: "Allegro",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |\nm :f :s |l :s :f |m :r :r |d :- :- |",
-    chords: "G - C G | D - G | C - G/D D | G - - |",
+    solfa: "s, :d |d :d |r :d |
+t, :d |r :m |r :- |
+s, :d |d :d |r :d |
+t, :d |d :t, |d :- |",
+    chords: "G - C G | D7 - G | C - G/D D7 | G - - |",
     verses: [
       {
         english: "Would you be free from the burden of sin?\nThere's power in the blood, power in the blood;\nWould you o'er evil a victory win?\nThere's wonderful power in the blood.",
@@ -990,8 +1075,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Tirẹ Ni Mi, Oluwa",
     key: "Db Major",
     tempo: "Andante",
-    solfa: "d :m :s |l :s :f |m :f :s |f :m :r |",
-    chords: "Db - Gb Db | Ab - Db | Gb - Db/Ab Ab | Db - - |",
+    solfa: "d :m |s :l |s :f |
+m :f |s :f |m :r |",
+    chords: "Db - Gb Db | Ab7 - Db | Gb - Db/Ab Ab7 | Db - - |",
     verses: [
       {
         english: "I am Thine, O Lord, I have heard Thy voice,\nAnd it told Thy love to me;\nBut I long to rise in the arms of faith\nAnd be closer drawn to Thee.",
@@ -1021,8 +1107,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Ba Mi Gbe, Irọlẹ N Ya Ni Kiakia",
     key: "Eb Major",
     tempo: "Adagio",
-    solfa: "s :s :s |l :s :f |m :f :s |f :- :- |",
-    chords: "Eb - Ab Eb | Bb - Eb | Ab - Eb/Bb Bb | Eb - - |",
+    solfa: "s :s |s :l |s :f |
+m :f |s :f |f :- |
+m :m |f :s |l :s |
+s :f |m :f |m :- |",
+    chords: "Eb - Ab Eb | Cm - Fm Bb7 | Eb - Ab Eb | Cm - Bb7 Eb |",
     verses: [
       {
         english: "Abide with me; fast falls the eventide;\nThe darkness deepens; Lord, with me abide.\nWhen other helpers fail and comforts flee,\nHelp of the helpless, O abide with me.",
@@ -1048,8 +1137,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Didun To Ni Wakati Ipari Ọjọ",
     key: "F Major",
     tempo: "Andante",
-    solfa: "d :m :f |s :l :s |f :m :r |d :- :- |",
-    chords: "F - Bb F | C - Dm | Bb - F/C C | F - - |",
+    solfa: "d :m |f :s |l :s |
+f :m |r :d |d :- |",
+    chords: "F - Bb F | C7 - Dm | Bb - F/C C7 | F - - |",
     verses: [
       {
         english: "How sweet the hour of closing day,\nWhen all is peaceful and serene,\nAnd when the sun with cloudless ray,\nSheds golden light on all the scene!",
@@ -1067,8 +1157,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Ọjọ Ayọ Ti O Fi Ipinnu Mi Lẹ",
     key: "G Major",
     tempo: "Allegro",
-    solfa: "s :s :l |s :m :d |d :r :m |r :- :- |",
-    chords: "G - C G | D - G | C - G/D D | G - - |",
+    solfa: "s :s |l :s |m :d |
+d :r |m :r |r :- |
+m :f |s :l |s :f |
+m :r |d :r |d :- |",
+    chords: "G - C G | D7 - G | C - G/D D7 | G - - |",
     verses: [
       {
         english: "O happy day, that fixed my choice\nOn Thee, my Savior and my God!\nWell may this glowing heart rejoice,\nAnd tell its raptures all abroad.",
@@ -1094,8 +1187,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Mo Fi Aye Mi Fun Ọ",
     key: "C Minor",
     tempo: "Adagio",
-    solfa: "d :m :s |s :f :m |r :m :f |m :- :- |",
-    chords: "Cm - Fm Cm | G - Cm | Fm - Cm/G G | Cm - - |",
+    solfa: "d :m |s :s |f :m |
+r :m |f :m |m :- |",
+    chords: "Cm - Fm Cm | G7 - Cm | Fm - Cm/G G7 | Cm - - |",
     verses: [
       {
         english: "I gave My life for thee,\nMy precious blood I shed,\nThat thou might'st ransomed be,\nAnd quickened from the dead;\nI gave, I gave My life for thee,\nWhat hast thou given for Me?",
@@ -1121,8 +1215,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Kristiani, Ma Wa Isinmi Sibẹ",
     key: "Eb Major",
     tempo: "Moderato",
-    solfa: "s :s :l |s :m :d |r :m :f |m :- :- |",
-    chords: "Eb - Ab Eb | Bb - Cm | Ab - Eb/Bb Bb | Eb - - |",
+    solfa: "s :s |l :s |m :d |
+r :m |f :m |m :- |",
+    chords: "Eb - Ab Eb | Bb7 - Cm | Ab - Eb/Bb Bb7 | Eb - - |",
     verses: [
       {
         english: "Christian, seek not yet repose,\nHear thy guardian angel say;\nThou art in the midst of foes;\nWatch and pray.",
@@ -1152,8 +1247,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Kristi Oluwa Ti Jinde Loni",
     key: "C Major",
     tempo: "Allegro Maestoso",
-    solfa: "d :m :s |d' :t :l |s :l :s |f :m :- |\nd :m :s |l :s :f |m :r :r |d :- :- |",
-    chords: "C - F C | G - Am | F - C/G G | C - - |",
+    solfa: "d :m |s :d' |t :l |
+s :l |s :f |m :- |
+d :m |s :l |s :f |
+m :r |d :r |d :- |",
+    chords: "C - F C | G7 - Am | F - C/G G7 | C - - |",
     verses: [
       {
         english: "Christ the Lord is risen today, Hallelujah!\nSons of men and angels say: Hallelujah!\nRaise your joys and triumphs high, Hallelujah!\nSing, ye heavens, and earth reply: Hallelujah!",
@@ -1179,8 +1277,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Sọ Iṣẹ Rẹ Di Titun, Oluwa",
     key: "Bb Major",
     tempo: "Moderato",
-    solfa: "d :m :s |s :f :m |r :m :f |m :- :- |",
-    chords: "Bb - Eb Bb | F - Bb | Eb - Bb/F F | Bb - - |",
+    solfa: "d :m |s :s |f :m |
+r :m |f :m |m :- |",
+    chords: "Bb - Eb Bb | F7 - Bb | Eb - Bb/F F7 | Bb - - |",
     verses: [
       {
         english: "Revive Thy work, O Lord,\nThy mighty arm make bare;\nSpeak with the voice that wakes the dead,\nAnd make Thy people hear.",
@@ -1206,8 +1305,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Jesu Wà! Ẹru Rẹ Nisiyi",
     key: "D Major",
     tempo: "Allegro",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |",
-    chords: "D - G D | A - Bm | G - D/A A | D - - |",
+    solfa: "d :m |s :s |l :s |
+f :m |r :d |d :- |",
+    chords: "D - G D | A7 - Bm | G - D/A A7 | D - - |",
     verses: [
       {
         english: "Jesus lives! thy terrors now\nCan no longer, death, appall us;\nJesus lives! by this we know\nThou, O grave, canst not enthrall us.\nAlleluia!",
@@ -1233,8 +1333,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Jerusalemu Loke",
     key: "G Major",
     tempo: "Maestoso",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |",
-    chords: "G - C G | D - Em | C - G/D D | G - - |",
+    solfa: "d :m |s :s |l :s |
+f :m |r :d |d :- |",
+    chords: "G - C G | D7 - Em | C - G/D D7 | G - - |",
     verses: [
       {
         english: "Jerusalem on high,\nMy song and city is,\nMy home whene'er I die,\nThe centre of my bliss.",
@@ -1260,8 +1361,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Itan Iyanu Ti Ifẹ",
     key: "F Major",
     tempo: "Allegretto",
-    solfa: "d :m :f |s :l :s |f :m :r |d :- :- |",
-    chords: "F - Bb F | C - Dm | Bb - F/C C | F - - |",
+    solfa: "d :m |f :s |l :s |
+f :m |r :d |d :- |",
+    chords: "F - Bb F | C7 - Dm | Bb - F/C C7 | F - - |",
     verses: [
       {
         english: "Wonderful story of love;\nTell it to me again;\nWonderful story of love;\nWake the immortal strain!\nAngels with rapture announce it,\nShepherds with wonder receive it;\nSinner, O won't you believe it?\nWonderful story of love.",
@@ -1281,10 +1383,13 @@ export const hymns: Hymn[] = [
     number: 47,
     title: "When the Trumpet of the Lord Shall Sound",
     titleYoruba: "Nigba Ti Ipè Oluwa Ba Dun",
-    key: "Ab Major",
+    key: "Bb Major",
     tempo: "Maestoso",
-    solfa: "d :m :s |l :s :f |m :m :f |s :- :- |",
-    chords: "Ab - Db Ab | Eb - Ab | Db - Ab/Eb Eb | Ab - - |",
+    solfa: "s :s |s :l |s :m |
+d :r |m :f |m :- |
+s :s |l :s |m :d |
+r :m |f :m |d :- |",
+    chords: "Bb - Eb Bb | F7 - Bb | Eb - Bb/F F7 | Bb - - |",
     verses: [
       {
         english: "When the trumpet of the Lord shall sound,\nAnd time shall be no more,\nAnd the morning breaks, eternal, bright and fair;\nWhen the saved of earth shall gather over on the other shore,\nAnd the roll is called up yonder, I'll be there.",
@@ -1308,10 +1413,14 @@ export const hymns: Hymn[] = [
     number: 48,
     title: "O My Comrade, See the Signal",
     titleYoruba: "Ẹgbẹ Mi, Wo Ami Naa",
-    key: "Bb Major",
-    tempo: "Allegro",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |",
-    chords: "Bb - Eb Bb | F - Gm | Eb - Bb/F F | Bb - - |",
+    key: "G Major",
+    tempo: "Andante",
+    solfa: "d :- |m :s |s :- |l |
+s :- |m :d |r :- :- |
+r :- |m :f |s :- |s |
+l :- |s :m |r :- :- |",
+    chords: "G - - | C - G | D7 - G |
+G - - | C - G | D7 - G |",
     verses: [
       {
         english: "O my comrade, see the signal\nWaving in the sky!\nReinforcements now appearing,\nVictory is nigh!",
@@ -1339,10 +1448,13 @@ export const hymns: Hymn[] = [
     number: 49,
     title: "Be Glad in the Lord and Rejoice",
     titleYoruba: "Ẹ Yọ Ninu Oluwa Ki Ẹ Si Yọ",
-    key: "G Major",
-    tempo: "Allegro",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |",
-    chords: "G - C G | D - Em | C - G/D D | G - - |",
+    key: "F Major",
+    tempo: "Allegro Moderato",
+    solfa: "d :m |s :l |s :f |
+m :f |s :l |s :- |
+d' :d' |t :l |s :l |
+t :d' |t :l |s :- |",
+    chords: "F - Bb F | C7 - F | Bb - F/C C7 | F - - |",
     verses: [
       {
         english: "Be glad in the Lord and rejoice,\nAll ye that are upright in heart;\nAnd ye that have made Him your choice,\nBid sadness and sorrow depart.",
@@ -1366,10 +1478,13 @@ export const hymns: Hymn[] = [
     number: 50,
     title: "Just as God Who Reigns on High (II)",
     titleYoruba: "Gẹgẹ Bi Ọlọrun Ti Njọba Loke (II)",
-    key: "C Major",
-    tempo: "Andante",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |",
-    chords: "C - F C | G - Am | F - G | C - - |",
+    key: "Eb Major",
+    tempo: "Maestoso",
+    solfa: "s :s |s :l |s :f |
+m :m |m :f |s :- |
+s :s |s :l |s :f |
+m :f |s :l |s :- |",
+    chords: "Eb - Ab Eb | Bb7 - Eb | Ab - Eb/Bb Bb7 | Eb - - |",
     verses: [
       {
         english: "Just as God who reigns on high\nSent His Son for man to die,\nSo we ought to live for Him\nEvery day and every hour within.",
@@ -1385,10 +1500,13 @@ export const hymns: Hymn[] = [
     number: 51,
     title: "Yet There Is Room",
     titleYoruba: "Sibẹ Aye Wa",
-    key: "F Major",
-    tempo: "Andante",
-    solfa: "d :m :f |s :l :s |f :m :r |d :- :- |",
-    chords: "F - Bb F | C - Dm | Bb - F/C C | F - - |",
+    key: "D Major",
+    tempo: "Maestoso",
+    solfa: "d :r |m :f |s :l |
+s :f |m :r |d :- |
+m :f |s :l |s :f |
+m :r |d :r |d :- |",
+    chords: "D - G D | A7 - D | G - D/A A7 | D - - |",
     verses: [
       {
         english: "Yet there is room! The Lamb's bright hall of song,\nWith its fair glory, beckons thee along;\nRoom, room, still room! O enter, enter now!",
@@ -1408,10 +1526,11 @@ export const hymns: Hymn[] = [
     number: 52,
     title: "Art Thou Weary, Art Thou Languid",
     titleYoruba: "Njẹ O Rẹ, Njẹ O Ṣe Alailera",
-    key: "Eb Major",
-    tempo: "Adagio",
-    solfa: "s :s :l |s :m :d |r :m :f |m :- :- |",
-    chords: "Eb - Ab Eb | Bb - Cm | Ab - Eb/Bb Bb | Eb - - |",
+    key: "D Major",
+    tempo: "Maestoso",
+    solfa: "d :m |s :s |l :s |
+f :m |r :d |d :- |",
+    chords: "D - G D | A7 - Bm | G - D/A A7 | D - - |",
     verses: [
       {
         english: "Art thou weary, art thou languid,\nArt thou sore distressed?\nCome to Me, saith One, and coming,\nBe at rest.",
@@ -1439,10 +1558,13 @@ export const hymns: Hymn[] = [
     number: 53,
     title: "Shall We Gather at the River",
     titleYoruba: "Ṣe A O Pejọ Ni Odo",
-    key: "D Major",
-    tempo: "Allegretto",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |",
-    chords: "D - G D | A - Bm | G - D/A A | D - - |",
+    key: "Ab Major",
+    tempo: "Moderato",
+    solfa: "d :m |s :l |s :f |
+m :f |s :f |m :r |
+d :m |s :l |s :f |
+m :r |d :r |d :- |",
+    chords: "Ab - Db Ab | Eb7 - Ab | Db - Ab/Eb Eb7 | Ab - - |",
     verses: [
       {
         english: "Shall we gather at the river,\nWhere bright angel feet have trod,\nWith its crystal tide forever\nFlowing by the throne of God?",
@@ -1474,10 +1596,13 @@ export const hymns: Hymn[] = [
     number: 54,
     title: "We Speak of the Realms of the Blest",
     titleYoruba: "A N Sọ Nipa Ijọba Olubukun",
-    key: "G Major",
-    tempo: "Andante",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |",
-    chords: "G - C G | D - Em | C - G/D D | G - - |",
+    key: "F Major",
+    tempo: "Moderato",
+    solfa: "s :s |l :s |m :d |d :l, |
+s, :d |m :d |s :m |r :- |
+s :s |l :s |m :d |d :l, |
+s, :d |m :r |d :t, |d :- |",
+    chords: "F - Bb F | C7 - F | Bb - F/C C7 | F - - |",
     verses: [
       {
         english: "We speak of the realms of the blest,\nThat country so bright and so fair,\nAnd oft are its glories confessed;\nBut what must it be to be there!",
@@ -1503,8 +1628,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Mo Fẹ Dabi Jesu",
     key: "F Major",
     tempo: "Moderato",
-    solfa: "d :m :f |s :l :s |f :m :r |d :- :- |",
-    chords: "F - Bb F | C - Dm | Bb - F/C C | F - - |",
+    solfa: "d :m |f :s |l :s |
+f :m |r :d |d :- |",
+    chords: "F - Bb F | C7 - Dm | Bb - F/C C7 | F - - |",
     verses: [
       {
         english: "I want to be like Jesus,\nSo lowly and so meek;\nFor no one marked an angry word\nThat ever heard Him speak.",
@@ -1530,8 +1656,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Igbagbọ Mi Wo Ọ Soke",
     key: "Eb Major",
     tempo: "Adagio",
-    solfa: "d :m :s |l :s :f |m :f :s |f :m :r |",
-    chords: "Eb - Ab Eb | Bb - Cm | Ab - Eb/Bb Bb | Eb - - |",
+    solfa: "d :d |r :m |m :r |d :- |
+d :m |s :s |f :m |r :- |
+m :m |f :s |l :l |s :- |
+s :f |m :r |d :r |d :- |",
+    chords: "Eb - Ab Eb | Bb7 - Cm | Ab - Eb/Bb Bb7 | Eb - - |",
     verses: [
       {
         english: "My faith looks up to Thee,\nThou Lamb of Calvary,\nSavior divine!\nNow hear me while I pray,\nTake all my guilt away,\nO let me from this day\nBe wholly Thine!",
@@ -1557,8 +1686,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Jerusalemu Loke (II)",
     key: "G Major",
     tempo: "Maestoso",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |",
-    chords: "G - C G | D - Em | C - G/D D | G - - |",
+    solfa: "d :m |s :s |l :s |
+f :m |r :d |d :- |",
+    chords: "G - C G | D7 - Em | C - G/D D7 | G - - |",
     verses: [
       {
         english: "Jerusalem on high,\nMy song and city is,\nMy home whene'er I die,\nThe centre of my bliss.",
@@ -1580,8 +1710,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Oluwa, Ọlọrun Mi",
     key: "Bb Major",
     tempo: "Maestoso",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |\nm :f :s |l :s :f |m :r :r |d :- :- |",
-    chords: "Bb - Eb Bb | F - Gm | Eb - Bb/F F | Bb - - |",
+    solfa: "s, :d |d :r |m :m |
+m :r |d :t, |d :- |
+s, :d |d :r |m :m |
+m :l |s :f |m :- |",
+    chords: "Bb - Eb Bb | F7 - Gm | Eb - Bb/F F7 | Bb - - |",
     verses: [
       {
         english: "O Lord, my God, when I in awesome wonder,\nConsider all the worlds Thy Hands have made;\nI see the stars, I hear the rolling thunder,\nThy power throughout the universe displayed.",
@@ -1611,8 +1744,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Sunmọ, Ọlọrun Mi, Si Ọ",
     key: "G Major",
     tempo: "Adagio",
-    solfa: "d :r :m |m :r :d |r :m :f |m :- :- |",
-    chords: "G - C G | D - Em | C - G/D D | G - - |",
+    solfa: "d :r |m :m |r :d |
+r :m |f :m |m :- |
+d :r |m :m |r :d |
+r :m |r :d |d :- |",
+    chords: "G - C G | D7 - Em | C - G/D D7 | G - - |",
     verses: [
       {
         english: "Nearer, my God, to Thee,\nNearer to Thee!\nE'en though it be a cross\nThat raiseth me,\nStill all my song shall be,\nNearer, my God, to Thee.",
@@ -1642,8 +1778,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Oniṣẹgun Nla Sunmọ Nisiyi",
     key: "Ab Major",
     tempo: "Moderato",
-    solfa: "d :m :s |l :s :f |m :f :s |f :m :r |",
-    chords: "Ab - Db Ab | Eb - Ab | Db - Ab/Eb Eb | Ab - - |",
+    solfa: "d :m |s :l |s :f |
+m :f |s :f |m :r |",
+    chords: "Ab - Db Ab | Eb7 - Ab | Db - Ab/Eb Eb7 | Ab - - |",
     verses: [
       {
         english: "The great Physician now is near,\nThe sympathizing Jesus;\nHe speaks the drooping heart to cheer,\nOh, hear the voice of Jesus.",
@@ -1673,8 +1810,9 @@ export const hymns: Hymn[] = [
     titleYoruba: "Aṣẹgun Ati Abori",
     key: "D Major",
     tempo: "Allegro Maestoso",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |",
-    chords: "D - G D | A - Bm | G - D/A A | D - - |",
+    solfa: "d :m |s :s |l :s |
+f :m |r :d |d :- |",
+    chords: "D - G D | A7 - Bm | G - D/A A7 | D - - |",
     verses: [
       {
         english: "Conquerors and overcomers now are we,\nThrough the precious blood of Christ we've victory;\nIf God be for us, who can be against?\nWe are more than conquerors through Him.",
@@ -1692,8 +1830,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Ẹgbẹrun Ahọn Lati Korin",
     key: "C Major",
     tempo: "Maestoso",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |\nm :f :s |l :s :f |m :r :r |d :- :- |",
-    chords: "C - F C | G - Am | F - C/G G | C - - |",
+    solfa: "s :d |r :m |d :r |f :m |
+m :l |t :d' |l :s |
+r :m |d :f |m :l |r :t |
+s :d |m :m |r :d |",
+    chords: "C - F C | G7 - Am | F - C/G G7 | C - - |",
     verses: [
       {
         english: "O for a thousand tongues to sing\nMy great Redeemer's praise,\nThe glories of my God and King,\nThe triumphs of His grace!",
@@ -1723,8 +1864,16 @@ export const hymns: Hymn[] = [
     titleYoruba: "Apata Ayeraye",
     key: "Bb Major",
     tempo: "Adagio",
-    solfa: "d :m :s |s :f :m |r :m :f |m :- :- |",
-    chords: "Bb - Eb Bb | F - Gm | Eb - Bb/F F | Bb - - |",
+    solfa: "s :l |s :m |
+d' :l |s :- |
+d :r |m |
+r :d |t, :d |
+t, :d |r :r |
+t, :s, |s, :- |
+s :l |s :m |
+d :r |m |
+r :d |t, :d |",
+    chords: "Bb - Eb Bb | F7 - Gm | Eb - Bb/F F7 | Bb - - |",
     verses: [
       {
         english: "Rock of Ages, cleft for me,\nLet me hide myself in Thee;\nLet the water and the blood,\nFrom Thy wounded side which flowed,\nBe of sin the double cure;\nSave from wrath and make me pure.",
@@ -1750,8 +1899,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Fun Ọlọrun Ni Ogo",
     key: "Ab Major",
     tempo: "Maestoso",
-    solfa: "d :m :s |l :s :f |m :f :s |f :m :r |\nd :m :s |l :s :f |m :r :r |d :- :- |",
-    chords: "Ab - Db Ab | Eb - Fm | Db - Ab/Eb Eb | Ab - - |",
+    solfa: "d :m |s :l |s :f |
+m :f |s :f |m :r |
+d :m |s :l |s :f |
+m :r |d :r |d :- |",
+    chords: "Ab - Db Ab | Eb7 - Fm | Db - Ab/Eb Eb7 | Ab - - |",
     verses: [
       {
         english: "To God be the glory, great things He has done;\nSo loved He the world that He gave us His Son,\nWho yielded His life an atonement for sin,\nAnd opened the life gate that all may go in.",
@@ -1777,8 +1929,11 @@ export const hymns: Hymn[] = [
     titleYoruba: "Yin, Ọkan Mi, Ọba Ọrun (II)",
     key: "D Major",
     tempo: "Maestoso",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |",
-    chords: "D - G D | A - Bm | G - D/A A | D - - |",
+    solfa: "d :m |s :l |s :m |
+d :m |f :m |r :- |
+m :f |s :l |t :d' |
+t :l |s :l |s :- |",
+    chords: "D - G D | A7 - Bm | G - D/A A7 | D - - |",
     verses: [
       {
         english: "Praise, my soul, the King of heaven;\nTo His feet thy tribute bring.\nRansomed, healed, restored, forgiven,\nEvermore His praises sing:\nAlleluia! Alleluia!\nPraise the everlasting King.",
@@ -1802,10 +1957,13 @@ export const hymns: Hymn[] = [
     number: 66,
     title: "O Come, All Ye Faithful",
     titleYoruba: "Ẹ Wá, Gbogbo Ẹyin Olọtitọ",
-    key: "G Major",
-    tempo: "Maestoso",
-    solfa: "d :- :d |s :m :d |r :d :t, |d :- :- |\nm :m :f |s :s :l |s :f :m |r :- :- |",
-    chords: "G - D G | C - G D | G - C G | D - G |",
+    key: "C Major",
+    tempo: "Adagio",
+    solfa: "d :m |s :l |s :f |
+m :f |s :l |s :- |
+d' :t |l :s |f :m |
+r :m |f :m |r :- |",
+    chords: "C - F C | G7 - Am | F - C/G G7 | C - - |",
     verses: [
       {
         english: "O come, all ye faithful,\nJoyful and triumphant;\nO come ye, O come ye to Bethlehem;\nCome and behold Him,\nBorn the King of Angels.",
@@ -1833,10 +1991,13 @@ export const hymns: Hymn[] = [
     number: 67,
     title: "There Shall Be Showers of Blessing",
     titleYoruba: "Ojo Ibukun Yio Rọ",
-    key: "Ab Major",
-    tempo: "Moderato",
-    solfa: "d :m :s |l :s :f |m :m :f |s :- :- |",
-    chords: "Ab - Db Ab | Eb - Ab | Db - Ab/Eb Eb | Ab - - |",
+    key: "D Major",
+    tempo: "Allegro",
+    solfa: "s :s |d' :d' |t :l |
+s :l |t :d' |d' :- |
+d' :d' |r' :d' |t :l |
+s :s |l :t |d' :- |",
+    chords: "D - G D | A7 - D | G - D/A A7 | D - - |",
     verses: [
       {
         english: "There shall be showers of blessing:\nThis is the promise of love;\nThere shall be seasons refreshing,\nSent from the Savior above.",
@@ -1864,10 +2025,13 @@ export const hymns: Hymn[] = [
     number: 68,
     title: "All to Jesus I Surrender",
     titleYoruba: "Gbogbo Fun Jesu Ni Mo Fi Silẹ",
-    key: "Db Major",
-    tempo: "Andante",
-    solfa: "d :m :s |l :s :f |m :f :s |f :m :r |\nd :m :s |l :s :f |m :r :r |d :- :- |",
-    chords: "Db - Gb Db | Ab - Db | Gb - Db/Ab Ab | Db - - |",
+    key: "D Major",
+    tempo: "Moderato",
+    solfa: "d :r |m :m |f :m |r :- |
+d :r |m :f |s :l |s :- |
+s :l |s :f |m :f |m :r |
+d :r |m :r |d :t, |d :- |",
+    chords: "D - G D | Em - A7 D | G - D/F# Bm | G - A7 D |",
     verses: [
       {
         english: "All to Jesus I surrender;\nAll to Him I freely give;\nI will ever love and trust Him,\nIn His presence daily live.",
@@ -1900,9 +2064,12 @@ export const hymns: Hymn[] = [
     title: "Hallelujah, Hallelujah, Hallelujah",
     titleYoruba: "Haleluya, Haleluya, Haleluya",
     key: "D Major",
-    tempo: "Allegro Maestoso",
-    solfa: "d :m :s |s :l :s |f :m :r |d :- :- |\nm :f :s |l :s :f |m :r :r |d :- :- |",
-    chords: "D - G D | A - Bm | G - D/A A | D - - |",
+    tempo: "Allegretto",
+    solfa: "d :d |m :s |s :f |m :r |
+d :d |m :s |l :l |s :- |
+s :s |l :d' |t :l |s :m |
+r :r |m :f |m :r |d :- |",
+    chords: "D - G D | A7 - D | G - D/F# Bm | Em - A7 D |",
     verses: [
       {
         english: "Hallelujah, hallelujah, hallelujah!\nPraise the Lord, the King of kings;\nHallelujah, hallelujah, hallelujah!\nLet creation rise and sing.",
@@ -1931,9 +2098,12 @@ export const hymns: Hymn[] = [
     title: "The Strife Is O'er, The Battle Done",
     titleYoruba: "Ija Ti Pari, Ogun Ti Tan",
     key: "C Major",
-    tempo: "Maestoso",
-    solfa: "s :s :s |m :f :s |l :s :f |m :- :- |\ns :s :s |l :l :s |f :m :r |d :- :- |\nd' :d' :t |l :s :l |s :f :m |r :- :- |\nm :f :s |l :s :f |m :r :r |d :- :- |",
-    chords: "C - F C | Am - G | C - F | G G7 C |\nC - F C | Dm - G | C/E F G | C - - |",
+    tempo: "Allegro",
+    solfa: "d :m |s :s |l :s |
+f :m |r :d |d :- |
+m :f |s :l |s :f |
+m :r |d :r |d :- |",
+    chords: "C - F C | G7 - Am | F - C/G G7 | C - - |",
     verses: [
       {
         english: "Alleluia! Alleluia! Alleluia!\nThe strife is o'er, the battle done;\nThe victory of life is won;\nThe song of triumph has begun:\nAlleluia!",
