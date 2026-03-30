@@ -16,6 +16,7 @@ const HymnsScreen = ({ initialHymn }: HymnsScreenProps) => {
   const [, setTick] = useState(0);
   const [showSolfa, setShowSolfa] = useState(false);
   const [showChords, setShowChords] = useState(false);
+  const { getOverride } = useHymnOverrides();
 
   const filtered = hymns.filter(h =>
     h.title.toLowerCase().includes(search.toLowerCase()) ||
