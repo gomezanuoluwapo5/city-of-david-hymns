@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Search, Heart, ArrowLeft, Plus, Minus, Music, ChevronDown, ChevronUp } from "lucide-react";
 import { hymns } from "@/data/hymns";
 import { isFavorite, toggleFavorite, setLastHymn, getFontSize } from "@/lib/store";
+import { useHymnOverrides } from "@/hooks/useHymnOverrides";
 
 interface HymnsScreenProps {
   onOpenHymn?: (num: number) => void;
@@ -15,6 +16,7 @@ const HymnsScreen = ({ initialHymn }: HymnsScreenProps) => {
   const [, setTick] = useState(0);
   const [showSolfa, setShowSolfa] = useState(false);
   const [showChords, setShowChords] = useState(false);
+  const { getOverride } = useHymnOverrides();
 
   const filtered = hymns.filter(h =>
     h.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -155,7 +157,7 @@ const HymnsScreen = ({ initialHymn }: HymnsScreenProps) => {
                     className="hymn-text text-foreground whitespace-pre-line"
                     style={{ fontSize: `${fontSize}px`, lineHeight: 1.8 }}
                   >
-                    {verse.yoruba}
+                    {getOverride(hymn.number, i) || verse.yoruba}
                   </p>
                 </div>
               </div>
@@ -187,7 +189,7 @@ const HymnsScreen = ({ initialHymn }: HymnsScreenProps) => {
                     className="hymn-text text-foreground whitespace-pre-line font-medium"
                     style={{ fontSize: `${fontSize}px`, lineHeight: 1.8 }}
                   >
-                    {hymn.chorus.yoruba}
+                    {getOverride(hymn.number, null) || hymn.chorus.yoruba}
                   </p>
                 </div>
               </div>
