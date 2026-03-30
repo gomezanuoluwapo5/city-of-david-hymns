@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Moon, Sun, Type, Church, Shield } from "lucide-react";
+import { Moon, Sun, Type, Church, Shield, ChevronRight } from "lucide-react";
 import { getFontSize, setFontSize, getDarkMode, setDarkMode } from "@/lib/store";
 import churchLogo from "@/assets/church-logo.jpeg";
 
@@ -65,6 +65,23 @@ const SettingsScreen = ({ onOpenAdmin }: SettingsScreenProps) => {
                 }`}
               />
             </div>
+          </button>
+        </div>
+
+        {/* Admin Panel */}
+        <div className="p-5 rounded-2xl bg-card border border-border shadow-card">
+          <button
+            onClick={onOpenAdmin}
+            className="w-full flex items-center gap-3"
+          >
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+              <Shield size={20} className="text-primary" />
+            </div>
+            <div className="flex-1 text-left">
+              <span className="text-sm font-semibold text-foreground block">Admin Panel</span>
+              <span className="text-[10px] text-muted-foreground">Edit Yorùbá hymn translations</span>
+            </div>
+            <ChevronRight size={16} className="text-muted-foreground" />
           </button>
         </div>
 
