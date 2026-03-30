@@ -189,7 +189,7 @@ const HymnsScreen = ({ initialHymn }: HymnsScreenProps) => {
                     className="hymn-text text-foreground whitespace-pre-line font-medium"
                     style={{ fontSize: `${fontSize}px`, lineHeight: 1.8 }}
                   >
-                    {hymn.chorus.yoruba}
+                    {getOverride(hymn.number, null) || hymn.chorus.yoruba}
                   </p>
                 </div>
               </div>
