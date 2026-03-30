@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ArrowLeft, Lock, Save, Check, Edit3, Music, ChevronDown, ChevronRight } from "lucide-react";
 import { hymns } from "@/data/hymns";
 import { useHymnOverrides, saveHymnOverride } from "@/hooks/useHymnOverrides";

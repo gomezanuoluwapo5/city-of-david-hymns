@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
-import { Moon, Sun, Type, Church } from "lucide-react";
+import { Moon, Sun, Type, Church, Shield } from "lucide-react";
 import { getFontSize, setFontSize, getDarkMode, setDarkMode } from "@/lib/store";
 import churchLogo from "@/assets/church-logo.jpeg";
 
-const SettingsScreen = () => {
+interface SettingsScreenProps {
+  onOpenAdmin?: () => void;
+}
+
+const SettingsScreen = ({ onOpenAdmin }: SettingsScreenProps) => {
   const [dark, setDark] = useState(getDarkMode());
   const [fs, setFs] = useState(getFontSize());
 
