@@ -14,7 +14,33 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      hymn_overrides: {
+        Row: {
+          hymn_number: number
+          id: string
+          updated_at: string
+          updated_by: string | null
+          verse_index: number | null
+          yoruba_text: string
+        }
+        Insert: {
+          hymn_number: number
+          id?: string
+          updated_at?: string
+          updated_by?: string | null
+          verse_index?: number | null
+          yoruba_text: string
+        }
+        Update: {
+          hymn_number?: number
+          id?: string
+          updated_at?: string
+          updated_by?: string | null
+          verse_index?: number | null
+          yoruba_text?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
