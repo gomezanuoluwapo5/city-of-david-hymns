@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Search, Heart, ArrowLeft, Plus, Minus, Music, ChevronDown, ChevronUp } from "lucide-react";
 import { hymns } from "@/data/hymns";
 import { isFavorite, toggleFavorite, setLastHymn, getFontSize } from "@/lib/store";
+import { useHymnOverrides } from "@/hooks/useHymnOverrides";
 
 interface HymnsScreenProps {
   onOpenHymn?: (num: number) => void;
