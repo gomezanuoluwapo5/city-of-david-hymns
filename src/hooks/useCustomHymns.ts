@@ -63,23 +63,22 @@ export async function saveCustomHymn(hymn: {
   tempo?: string;
   created_by?: string;
 }) {
+  const payload = {
+    number: hymn.number,
+    title: hymn.title,
+    title_yoruba: hymn.title_yoruba,
+    verses: hymn.verses as unknown,
+    chorus: (hymn.chorus || null) as unknown,
+    solfa: hymn.solfa || null,
+    chords: hymn.chords || null,
+    key: hymn.key || null,
+    tempo: hymn.tempo || null,
+    created_by: hymn.created_by || null,
+  } as any;
+
   const { error } = await supabase
     .from("custom_hymns")
-    .upsert(
-      {
-        number: hymn.number,
-        title: hymn.title,
-        title_yoruba: hymn.title_yoruba,
-        verses: hymn.verses as unknown as Record<string, unknown>[],
-        chorus: hymn.chorus as unknown as Record<string, unknown> | null,
-        solfa: hymn.solfa || null,
-        chords: hymn.chords || null,
-        key: hymn.key || null,
-        tempo: hymn.tempo || null,
-        created_by: hymn.created_by || null,
-      },
-      { onConflict: "number" }
-    );
+    .upsert(payload, { onConflict: "number" });
 
   return { error };
 }
