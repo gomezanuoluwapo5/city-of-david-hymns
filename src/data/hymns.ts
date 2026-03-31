@@ -17,16 +17,12 @@ export const hymns: Hymn[] = [
     titleYoruba: "Mimo, Mimo, Mimo",
     key: "D Major",
     tempo: "Moderato",
-    solfa: "d :d |m :m |s :- |s :- |
-l :l |l :s |m :- :- |
-s :s |s :s |d' :t |
-s :r |s :l |s :s |
-d :d |m :m |s :- |s :- |
-l :l |l :l |s :m |
-d' :s |s :l |m |
-f :m |r :d |d :- :- |",
-    chords: "D - - | Bm - A | D - G | D/A A7 D |
-D - - | Bm - A | D - G | D/A A7 D |",
+    solfa: `d d m m s s, l l l s f m
+s s s s d d, s r s l s s
+d d m m s s, l l l s f m
+d s s l m, f r r d d`,
+    chords: `D - - | Bm - A | D - G | D/A A7 D |
+D - - | Bm - A | D - G | D/A A7 D |`,
     verses: [
       {
         english: "Holy, holy, holy! Lord God Almighty!\nEarly in the morning our song shall rise to Thee;\nHoly, holy, holy, merciful and mighty!\nGod in three Persons, blessèd Trinity!",
@@ -52,8 +48,10 @@ D - - | Bm - A | D - G | D/A A7 D |",
     titleYoruba: "E Je Ka Fi Ayo Okan",
     key: "G Major",
     tempo: "Andante",
-    solfa: "d :d |r :m |f :m |r :- |
-d :d |r :m |r :t, |d :- |",
+    solfa: `s s l s m d, r r m r d
+s s l s m d, r r m d
+m m f s l l, s f m r
+s s l s m d, r r m d`,
     chords: "G - C G | D - G | G - C G | D7 - G |",
     verses: [
       {
@@ -92,8 +90,10 @@ d :d |r :m |r :t, |d :- |",
     titleYoruba: "Kini Le We Ese Mi Nu",
     key: "Ab Major",
     tempo: "Moderato",
-    solfa: "m :s |s :f |m :r |d :- |
-m :s |s :f |m :r |d :- |",
+    solfa: `d d d r m s m, d d d r m m r d
+d d d r m s m, d d d r m m r d
+s m r m s m, r r d r r m s
+s m r m s m, d d d r m m r d`,
     chords: "Ab - Db Ab | Eb - Ab | Ab - Db Ab | Eb7 - Ab |",
     verses: [
       {
@@ -124,14 +124,10 @@ m :s |s :f |m :r |d :- |",
     titleYoruba: "Nigba Ti A Ba Rin Pelu Oluwa",
     key: "Eb Major",
     tempo: "Moderato",
-    solfa: "d :r |m :m |r :d |
-m :f |s :s |f :m |
-m :m |m :f |l |
-f :m |s :m |r |
-d :r |m :m |r :d |
-m :f |s :s |f :m |
-m :m |f :l |
-f :m |d :r |d :- |",
+    solfa: `m m r d d r m s, l l s m r
+m m r d d r m s, l l s m r
+s s s l s m r d, m m r d r
+m m r d d r m s, l l s m r`,
     chords: "Eb - Ab Eb | Bb7 - Eb | Ab - Eb Bb7 | Eb - - |",
     verses: [
       {
@@ -166,12 +162,12 @@ f :m |d :r |d :- |",
     titleYoruba: "Olorun, Iranlowo Wa Lati Igba Atijo",
     key: "C Major",
     tempo: "Maestoso",
-    solfa: "d :d |r :m |m :r |
-d :d |t, :d |d :- |
-m :m |f :s |s :f |
-m :r |d :r |d :- |",
-    chords: "C - F C | G - Am | C/G - G | C - - |
-C - F C | G - Am | C - G7 | C - - |",
+    solfa: `d d r m m r d t, l l t d d t
+d d r m m r d t, l l t d
+m m f s s f m r, d d r m m r
+d d r m m r d t, l l t d`,
+    chords: `C - F C | G - Am | C/G - G | C - - |
+C - F C | G - Am | C - G7 | C - - |`,
     verses: [
       {
         english: "O God, our help in ages past,\nOur hope for years to come,\nOur shelter from the stormy blast,\nAnd our eternal home!",
@@ -205,10 +201,10 @@ C - F C | G - Am | C - G7 | C - - |",
     titleYoruba: "Tele Nikan",
     key: "F Major",
     tempo: "Moderato",
-    solfa: "d :m |s :l |s :f |
-m :f |s :f |m :r |
-d :m |s :l |s :f |
-m :r |r :d |d :- |",
+    solfa: `s s l s m d, r r m r d
+s s l s m d, r r m d
+m m f s l l, s f m r
+s s l s m d, r r m d`,
     chords: "F - Bb F | C7 - F | Bb - F/C C7 | F - - |",
     verses: [
       {
@@ -231,10 +227,10 @@ m :r |r :d |d :- |",
     titleYoruba: "E Josin Fun Oba",
     key: "D Major",
     tempo: "Maestoso",
-    solfa: "s :s |f :m |r :m |f :m :- |
-m :s |d' :t |l :s |s :- |
-s :s |f :m |l :l |s :- |
-d' :s |l :s |f :m |r :d :- |",
+    solfa: `s d d r m, s d r t d
+r m r d t, t d r d t l s
+t d r m d l, f m r d s
+s l t d r s, m l r t d`,
     chords: "D - G D | A7 - D | G - D/A A7 | D - - |",
     verses: [
       {
@@ -261,10 +257,10 @@ d' :s |l :s |f :m |r :d :- |",
     titleYoruba: "Ojo Ayo",
     key: "G Major",
     tempo: "Allegro",
-    solfa: "s :s |l :s |m :d |
-d :r |m :r |r :- |
-m :f |s :l |s :f |
-m :r |r :d |d :- |",
+    solfa: `d m s s l s, m m r d
+d m s s l s, m r d
+s s s s l s, m m r d
+d m s s l s, m r d`,
     chords: "G - C G | D7 - G | C - G/D D7 | G - - |",
     verses: [
       {
@@ -295,10 +291,10 @@ m :r |r :d |d :- |",
     titleYoruba: "Nipa Ife Olorun Olugbala Wa",
     key: "F Major",
     tempo: "Andante",
-    solfa: "d :m |f :s |l :s |
-f :m |r :d |d :- |
-d :m |f :s |l :t |
-d' :t |l :s |s :- |",
+    solfa: `d m s l s f m, r m f m r d
+d m s l s f m, r m f m r d
+m s l t d t l, s l t d
+d m s l s f m, r m f m r d`,
     chords: "F - Bb F | C7 - F | Bb - C7 | F - - |",
     verses: [
       {
@@ -325,10 +321,10 @@ d' :t |l :s |s :- |",
     titleYoruba: "Ko Si Ore Bi Jesu Onirele",
     key: "Ab Major",
     tempo: "Moderato",
-    solfa: "d :m |s :l |s :f |
-m :m |f :s |s :- |
-s :l |s :f |m :r |
-d :r |m :d |d :- |",
+    solfa: `s f m r m s m, r r d r r m s
+s f m r m s m, d d d r m m r d
+s m r m s m, r r d r r m s
+s m r m s m, d d d r m m r d`,
     chords: "Ab - Db Ab | Eb7 - Ab | Db - Ab/Eb Eb7 | Ab - - |",
     verses: [
       {
@@ -363,10 +359,10 @@ d :r |m :d |d :- |",
     titleYoruba: "Nla Ni Igbagbo Re",
     key: "D Major",
     tempo: "Moderato",
-    solfa: "d :d |m :s |s :- |f :m |
-l :l |l :s |f :m |r :- |
-d :d |m :s |l :s |f |
-m :r |d :r |d :- :- |",
+    solfa: `d d m s s, l l l s
+f f m r r, m m r d
+d d m s s, l l l s
+f f m r r, m r d`,
     chords: "D - G D | Bm - Em A7 | D - G | D/A A7 D |",
     verses: [
       {
@@ -393,10 +389,10 @@ m :r |d :r |d :- :- |",
     titleYoruba: "E Je Ka Dupe Lowo Olorun Wa",
     key: "F Major",
     tempo: "Maestoso",
-    solfa: "d :d |d :r |m :m |f |
-s :s |s :f |m :- :- |
-m :m |f :s |l :s |
-f :m |r :d |d :- :- |",
+    solfa: `d d r m m r, d t l l t d
+d d r m f m r, d r m r d
+m m f s s f, m r d d r m
+d d r m m r, d t l l t d`,
     chords: "F - Bb F | C - Dm | Bb - F/C C7 | F - - |",
     verses: [
       {
@@ -419,10 +415,10 @@ f :m |r :d |d :- :- |",
     titleYoruba: "Ba Mi Gbe",
     key: "Eb Major",
     tempo: "Adagio",
-    solfa: "s :s |s :l |s :f |
-m :f |s :f |f :- |
-m :m |f :s |l :s |
-s :f |m :f |m :- |",
+    solfa: `m m r d s l s, s f m
+m m s l s f r, m fe s
+m m r d s s f f m r
+r m f m r d, f m r d`,
     chords: "Eb - Ab Eb | Cm - Fm Bb7 | Eb - Ab Eb | Cm - Bb7 Eb |",
     verses: [
       {
@@ -453,10 +449,10 @@ s :f |m :f |m :- |",
     titleYoruba: "Mo N Tẹsiwaju Ni Ona Oke",
     key: "G Major",
     tempo: "Allegro",
-    solfa: "s :s |l :s |m :d |
-r :m |f :m |m :- |
-m :f |s :l |s :f |
-m :r |d :r |d :- |",
+    solfa: `d d r m m r d, s s l s
+d d r m m r d, s s l s
+m m f s s f m, r d r m
+d d r m m r d, s s l s`,
     chords: "G - C G | D7 - Em | C - G/D D7 | G - - |",
     verses: [
       {
@@ -487,8 +483,10 @@ m :r |d :r |d :- |",
     titleYoruba: "Nisiyi E Je Ka Dupẹ",
     key: "F Major",
     tempo: "Maestoso",
-    solfa: "d :d |d :r |m :m |f |
-s :s |s :f |m :- :- |",
+    solfa: `d d r m m r, d t l l t d
+d d r m f m r, d r m r d
+m m f s s f, m r d d r m
+d d r m m r, d t l l t d`,
     chords: "F - Bb F | C - Dm | Bb - F/C C7 | F - - |",
     verses: [
       {
@@ -507,10 +505,10 @@ s :s |s :f |m :- :- |",
     titleYoruba: "Lọ, Aigbagbọ",
     key: "Bb Major",
     tempo: "Andante",
-    solfa: "d :m |s :s |f :m |
-r :r |m :f |f :- |
-m :s |l :s |f :m |
-r :d |r :d |d :- |",
+    solfa: `d d m s s l s, m r d
+d d m s s l s, m r d
+m m f s l s f, m r d
+d d m s s l s, m r d`,
     chords: "Bb - Eb Bb | F7 - Bb | Eb - Bb/F F7 | Bb - - |",
     verses: [
       {
@@ -537,10 +535,10 @@ r :d |r :d |d :- |",
     titleYoruba: "Alejò Kan Wà Ni Ẹnu Ilẹkun",
     key: "G Major",
     tempo: "Moderato",
-    solfa: "s :s |s :m |m :d |
-r :m |f :m |m :- |
-s :l |s :f |m :r |
-d :r |m :d |d :- |",
+    solfa: `s s s s l s m, s s s s l s
+s s s s l s m, s s f m r d
+d d d d r d t, d d d d r d
+s s s s l s m, s s f m r d`,
     chords: "G - C G | D7 - G | C - G/D D7 | G - - |",
     verses: [
       {
@@ -571,8 +569,10 @@ d :r |m :d |d :- |",
     titleYoruba: "Gẹgẹ Bi Ọlọrun Ti Njọba Loke",
     key: "C Major",
     tempo: "Andante",
-    solfa: "d :m |s :s |l :s |
-f :m |r :d |d :- |",
+    solfa: `d d r m s s l, s f m r d
+d d r m s s l, s f m r d
+m f s l s f m, r d r m
+d d r m s s l, s f m r d`,
     chords: "C - F C | G7 - Am | F - G7 | C - - |",
     verses: [
       {
@@ -591,10 +591,10 @@ f :m |r :d |d :- |",
     titleYoruba: "Ẹ Dide, Ẹ Dide Fun Jesu",
     key: "Bb Major",
     tempo: "Maestoso",
-    solfa: "s, :d |r :m |r :d |
-l, :d |d :r |d :- |
-m :s |d' :t |l :s |
-f :m |r :d |d :- |",
+    solfa: `s d d m d d l, d s r r m r
+s d d m d d l, d s d m r d
+d r r d r m m, m f m l r d t
+s d d m d d l, d s d m r d`,
     chords: "Bb - Eb Bb | F7 - Bb | Eb - Bb/F F7 | Bb - - |",
     verses: [
       {
@@ -621,8 +621,10 @@ f :m |r :d |d :- |",
     titleYoruba: "Jesu N Pe Wa Lori Ariwo",
     key: "D Major",
     tempo: "Moderato",
-    solfa: "d :m |s :s |f :m |
-r :m |f :m |m :- |",
+    solfa: `d d d r m m, m f m r d t d
+d d d r m r, r m r d t l s
+s s s l t d, d t l s l t
+d d d r m m, m f m r d`,
     chords: "D - G D | A7 - Bm | G - D/A A7 | D - - |",
     verses: [
       {
@@ -653,10 +655,10 @@ r :m |f :m |m :- |",
     titleYoruba: "Gba Aye Mi Ki O Si Je",
     key: "C Major",
     tempo: "Andante",
-    solfa: "d :d |d :r |m :m |
-m :f |s :s |s :- |
-l :l |s :s |m :m |
-r :r |d :r |d :- |",
+    solfa: `d r m d m r, d r m s m r
+d r m d m r, d r m f m
+m f s m s f, m f s d t l
+d r m d m r, d r m r d`,
     chords: "C - F C | Am - G | F - C/G G7 | C - - |",
     verses: [
       {
@@ -691,8 +693,10 @@ r :r |d :r |d :- |",
     titleYoruba: "Jesu, Mo Ti Gbe Agbelebu Mi",
     key: "Eb Major",
     tempo: "Moderato",
-    solfa: "s :s |l :s |m :d |
-r :m |f :m |m :- |",
+    solfa: `d m s l s f m, r m f m r d
+d m s l s f m, r m f m r d
+m s l t d t l, s l t d
+d m s l s f m, r m f m r d`,
     chords: "Eb - Ab Eb | Bb7 - Cm | Ab - Eb/Bb Bb7 | Eb - - |",
     verses: [
       {
@@ -715,8 +719,10 @@ r :m |f :m |m :- |",
     titleYoruba: "Ohun Ti O Mi Sori Edeni",
     key: "F Major",
     tempo: "Andante",
-    solfa: "d :m |f :s |l :s |
-f :m |r :d |d :- |",
+    solfa: `d d r m m r d, t l l t d
+d d r m m r d, r m r d
+m m f s s f m, r d r m
+d d r m m r d, t l l t d`,
     chords: "F - Bb F | C7 - Dm | Bb - F/C C7 | F - - |",
     verses: [
       {
@@ -743,8 +749,10 @@ f :m |r :d |d :- |",
     titleYoruba: "Jesu, A Ti Pejọ",
     key: "G Major",
     tempo: "Moderato",
-    solfa: "d :m |s :s |l :s |
-f :m |r :d |d :- |",
+    solfa: `d d m s s l s, m r d
+d d m s s l s, m r d
+m m f s l s f, m r d
+d d m s s l s, m r d`,
     chords: "G - C G | D7 - Em | C - G/D D7 | G - - |",
     verses: [
       {
@@ -767,10 +775,10 @@ f :m |r :d |d :- |",
     titleYoruba: "Jesu Fẹ Mi, Eyi Ni Mo Mọ",
     key: "C Major",
     tempo: "Allegretto",
-    solfa: "d :d |d :m |s :s |m |
-f :f |f :m |r :- :- |
-d :d |d :m |s :s |m |
-r :r |d :r |d :- :- |",
+    solfa: `s f m r, m s s
+l l d' l, l s s
+s f m r, m s s
+l l s, d m r d`,
     chords: "C - - | F - C | G7 - C | F - G7 C |",
     verses: [
       {
@@ -797,8 +805,10 @@ r :r |d :r |d :- :- |",
     titleYoruba: "Kini Le Wẹ Ẹsẹ Mi Nu (II)",
     key: "Ab Major",
     tempo: "Moderato",
-    solfa: "m :s |s :f |m :r |d :- |
-m :s |s :f |m :r |d :- |",
+    solfa: `d d d r m s m, d d d r m m r d
+d d d r m s m, d d d r m m r d
+s m r m s m, r r d r r m s
+s m r m s m, d d d r m m r d`,
     chords: "Ab - Db Ab | Eb7 - Ab | Db - Ab/Eb Eb7 | Ab - - |",
     verses: [
       {
@@ -829,8 +839,10 @@ m :s |s :f |m :r |d :- |",
     titleYoruba: "Ijọba Rẹ De, Ọlọrun",
     key: "D Minor",
     tempo: "Adagio",
-    solfa: "d :r |m :f |m :r |
-d :r |m :r |r :- |",
+    solfa: `d d r m m r, d t l l t d
+d d r m f m r, d r m r d
+m m f s s f, m r d d r m
+d d r m m r, d t l l t d`,
     chords: "Dm - Gm Dm | A7 - Dm | Gm - Dm/A A7 | Dm - - |",
     verses: [
       {
@@ -857,8 +869,10 @@ d :r |m :r |r :- |",
     titleYoruba: "Ni Owurọ Ajinde",
     key: "D Major",
     tempo: "Allegro",
-    solfa: "d :m |s :s |l :s |
-f :m |r :d |d :- |",
+    solfa: `d d r m s l s, m r d
+d d r m s l s, m r d
+m f s l s f m, r d r m
+d d r m s l s, m r d`,
     chords: "D - G D | A7 - Bm | G - D/A A7 | D - - |",
     verses: [
       {
@@ -885,8 +899,10 @@ f :m |r :d |d :- |",
     titleYoruba: "Olugbala Olufẹ, Gbọ Igbe Mi",
     key: "F Major",
     tempo: "Adagio",
-    solfa: "d :m |f :s |l :s |
-f :m |r :d |d :- |",
+    solfa: `d m s l s f m, r m f m r d
+d m s l s f m, r m f m r d
+m s d t l s, l t d
+d m s l s f m, r m f m r d`,
     chords: "F - Bb F | C7 - Dm | Bb - F/C C7 | F - - |",
     verses: [
       {
@@ -909,8 +925,10 @@ f :m |r :d |d :- |",
     titleYoruba: "Ọkan Ti O Ni Wahala, Ile Kan Wa",
     key: "Eb Major",
     tempo: "Andante",
-    solfa: "s :s |l :s |m :d |
-r :m |f :m |m :- |",
+    solfa: `d d m s s l s, m r d
+d d m s s l s, m r d
+m m f s l s f, m r d
+d d m s s l s, m r d`,
     chords: "Eb - Ab Eb | Bb7 - Cm | Ab - Eb/Bb Bb7 | Eb - - |",
     verses: [
       {
@@ -929,10 +947,10 @@ r :m |f :m |m :- |",
     titleYoruba: "Yin, Ọkan Mi, Ọba Ọrun",
     key: "D Major",
     tempo: "Maestoso",
-    solfa: "d :m |s :l |s :m |
-d :m |f :m |r :- |
-m :f |s :l |t :d' |
-t :l |s :l |s :- |",
+    solfa: `s s s s d' t l s, f m l s m f r
+m m m m l s s fe, s l t d' m fe s
+d' t l s, d' t l s
+l s f r d t d`,
     chords: "D - G D | A7 - Bm | G - D/A A7 | D - - |",
     verses: [
       {
@@ -959,10 +977,10 @@ t :l |s :l |s :- |",
     titleYoruba: "Gba Awon Ti N Segbe",
     key: "Ab Major",
     tempo: "Moderato",
-    solfa: "d :m |s :l |s :f |
-m :f |s :f |m :r |
-d :m |s :l |s :f |
-m :r |d :r |d :- |",
+    solfa: `s s l s m d, s s l s m
+s s l s m d, r m r d
+d d r d t d, d d r d t
+s s l s m d, r m r d`,
     chords: "Ab - Db Ab | Eb7 - Ab | Db - Ab/Eb Eb7 | Ab - - |",
     verses: [
       {
@@ -993,8 +1011,10 @@ m :r |d :r |d :- |",
     titleYoruba: "Awon Ti O Gbẹkẹle Oluwa",
     key: "G Major",
     tempo: "Moderato",
-    solfa: "d :m |s :s |l :s |
-f :m |r :d |d :- |",
+    solfa: `d d r m s s, l l s m r
+d d r m s s, l l s m r
+m m f s l l, s f m r
+d d r m s s, l l s m r`,
     chords: "G - C G | D7 - Em | C - G/D D7 | G - - |",
     verses: [
       {
@@ -1013,8 +1033,10 @@ f :m |r :d |d :- |",
     titleYoruba: "Nisisiyi Isẹ Osisẹ Ti Pari",
     key: "Eb Major",
     tempo: "Adagio",
-    solfa: "s :s |l :s |m :d |
-r :m |f :m |m :- |",
+    solfa: `d d r m m r d, t l l t d
+d d r m m r d, r m r d
+m m f s s f m, r d r m
+d d r m m r d, t l l t d`,
     chords: "Eb - Ab Eb | Bb7 - Cm | Ab - Eb/Bb Bb7 | Eb - - |",
     verses: [
       {
@@ -1041,10 +1063,10 @@ r :m |f :m |m :- |",
     titleYoruba: "Agbara Wa Ninu Ẹjẹ Jesu",
     key: "G Major",
     tempo: "Allegro",
-    solfa: "s, :d |d :d |r :d |
-t, :d |r :m |r :- |
-s, :d |d :d |r :d |
-t, :d |d :t, |d :- |",
+    solfa: `d d d r m m m, m f m r d
+d d d r m m m, m f m r d
+s s s l s f m, r d r m
+d d d r m m m, m f m r d`,
     chords: "G - C G | D7 - G | C - G/D D7 | G - - |",
     verses: [
       {
@@ -1075,8 +1097,10 @@ t, :d |d :t, |d :- |",
     titleYoruba: "Tirẹ Ni Mi, Oluwa",
     key: "Db Major",
     tempo: "Andante",
-    solfa: "d :m |s :l |s :f |
-m :f |s :f |m :r |",
+    solfa: `d d r m m r d, s s l s
+d d r m m r d, s s l s
+m m f s s f m, r d r m
+d d r m m r d, s s l s`,
     chords: "Db - Gb Db | Ab7 - Db | Gb - Db/Ab Ab7 | Db - - |",
     verses: [
       {
@@ -1107,10 +1131,10 @@ m :f |s :f |m :r |",
     titleYoruba: "Ba Mi Gbe, Irọlẹ N Ya Ni Kiakia",
     key: "Eb Major",
     tempo: "Adagio",
-    solfa: "s :s |s :l |s :f |
-m :f |s :f |f :- |
-m :m |f :s |l :s |
-s :f |m :f |m :- |",
+    solfa: `m m r d s l s, s f m
+m m s l s f r, m fe s
+m m r d s s f f m r
+r m f m r d, f m r d`,
     chords: "Eb - Ab Eb | Cm - Fm Bb7 | Eb - Ab Eb | Cm - Bb7 Eb |",
     verses: [
       {
@@ -1137,8 +1161,10 @@ s :f |m :f |m :- |",
     titleYoruba: "Didun To Ni Wakati Ipari Ọjọ",
     key: "F Major",
     tempo: "Andante",
-    solfa: "d :m |f :s |l :s |
-f :m |r :d |d :- |",
+    solfa: `d d m s s l s, m r d
+d d m s s l s, m r d
+m m f s l s f, m r d
+d d m s s l s, m r d`,
     chords: "F - Bb F | C7 - Dm | Bb - F/C C7 | F - - |",
     verses: [
       {
@@ -1157,10 +1183,10 @@ f :m |r :d |d :- |",
     titleYoruba: "Ọjọ Ayọ Ti O Fi Ipinnu Mi Lẹ",
     key: "G Major",
     tempo: "Allegro",
-    solfa: "s :s |l :s |m :d |
-d :r |m :r |r :- |
-m :f |s :l |s :f |
-m :r |d :r |d :- |",
+    solfa: `d m s s l s, m m r d
+d m s s l s, m r d
+s s s s l s, m m r d
+d m s s l s, m r d`,
     chords: "G - C G | D7 - G | C - G/D D7 | G - - |",
     verses: [
       {
@@ -1187,8 +1213,10 @@ m :r |d :r |d :- |",
     titleYoruba: "Mo Fi Aye Mi Fun Ọ",
     key: "C Minor",
     tempo: "Adagio",
-    solfa: "d :m |s :s |f :m |
-r :m |f :m |m :- |",
+    solfa: `d d m s s, l l l s
+f f m r r, m m r d
+d d m s s, l l l s
+f f m r r, m r d`,
     chords: "Cm - Fm Cm | G7 - Cm | Fm - Cm/G G7 | Cm - - |",
     verses: [
       {
@@ -1215,8 +1243,10 @@ r :m |f :m |m :- |",
     titleYoruba: "Kristiani, Ma Wa Isinmi Sibẹ",
     key: "Eb Major",
     tempo: "Moderato",
-    solfa: "s :s |l :s |m :d |
-r :m |f :m |m :- |",
+    solfa: `d d r m m r d, t l l t d
+d d r m m r d, r m r d
+m m f s s f m, r d r m
+d d r m m r d, t l l t d`,
     chords: "Eb - Ab Eb | Bb7 - Cm | Ab - Eb/Bb Bb7 | Eb - - |",
     verses: [
       {
@@ -1247,10 +1277,10 @@ r :m |f :m |m :- |",
     titleYoruba: "Kristi Oluwa Ti Jinde Loni",
     key: "C Major",
     tempo: "Allegro Maestoso",
-    solfa: "d :m |s :d' |t :l |
-s :l |s :f |m :- |
-d :m |s :l |s :f |
-m :r |d :r |d :- |",
+    solfa: `d m s d' d' t l s, l s f m
+d m s d' d' t l s, l s f m
+s s s l t d' d' t, l s l t
+d m s d' d' t l s, l s f m`,
     chords: "C - F C | G7 - Am | F - C/G G7 | C - - |",
     verses: [
       {
@@ -1277,8 +1307,10 @@ m :r |d :r |d :- |",
     titleYoruba: "Sọ Iṣẹ Rẹ Di Titun, Oluwa",
     key: "Bb Major",
     tempo: "Moderato",
-    solfa: "d :m |s :s |f :m |
-r :m |f :m |m :- |",
+    solfa: `d d r m m r d, s s l s
+d d r m m r d, s s l s
+m m f s s f m, r d r m
+d d r m m r d, s s l s`,
     chords: "Bb - Eb Bb | F7 - Bb | Eb - Bb/F F7 | Bb - - |",
     verses: [
       {
@@ -1305,8 +1337,10 @@ r :m |f :m |m :- |",
     titleYoruba: "Jesu Wà! Ẹru Rẹ Nisiyi",
     key: "D Major",
     tempo: "Allegro",
-    solfa: "d :m |s :s |l :s |
-f :m |r :d |d :- |",
+    solfa: `d d m s s, l l l s
+f f m r r, m m r d
+d d m s s, l l l s
+f f m r r, m r d`,
     chords: "D - G D | A7 - Bm | G - D/A A7 | D - - |",
     verses: [
       {
@@ -1333,8 +1367,10 @@ f :m |r :d |d :- |",
     titleYoruba: "Jerusalemu Loke",
     key: "G Major",
     tempo: "Maestoso",
-    solfa: "d :m |s :s |l :s |
-f :m |r :d |d :- |",
+    solfa: `d d m s s l s, m r d
+d d m s s l s, m r d
+m m f s l s f, m r d
+d d m s s l s, m r d`,
     chords: "G - C G | D7 - Em | C - G/D D7 | G - - |",
     verses: [
       {
@@ -1361,8 +1397,10 @@ f :m |r :d |d :- |",
     titleYoruba: "Itan Iyanu Ti Ifẹ",
     key: "F Major",
     tempo: "Allegretto",
-    solfa: "d :m |f :s |l :s |
-f :m |r :d |d :- |",
+    solfa: `s s s l s m d, s s s l s
+s s s l s m d, r m r d
+d d d d r d t, d d d d r d
+s s s l s m d, r m r d`,
     chords: "F - Bb F | C7 - Dm | Bb - F/C C7 | F - - |",
     verses: [
       {
@@ -1385,10 +1423,10 @@ f :m |r :d |d :- |",
     titleYoruba: "Nigba Ti Ipè Oluwa Ba Dun",
     key: "Bb Major",
     tempo: "Maestoso",
-    solfa: "s :s |s :l |s :m |
-d :r |m :f |m :- |
-s :s |l :s |m :d |
-r :m |f :m |d :- |",
+    solfa: `d d d r m m m, m f m r d
+d d d r m m m, m f m r d
+s s l s f m r, d r m
+d d d r m m m, m f m r d`,
     chords: "Bb - Eb Bb | F7 - Bb | Eb - Bb/F F7 | Bb - - |",
     verses: [
       {
@@ -1415,12 +1453,12 @@ r :m |f :m |d :- |",
     titleYoruba: "Ẹgbẹ Mi, Wo Ami Naa",
     key: "G Major",
     tempo: "Andante",
-    solfa: "d :- |m :s |s :- |l |
-s :- |m :d |r :- :- |
-r :- |m :f |s :- |s |
-l :- |s :m |r :- :- |",
-    chords: "G - - | C - G | D7 - G |
-G - - | C - G | D7 - G |",
+    solfa: `s d d m d d l, d s r r m r
+s d d m d d l, d s d m r d
+d r r d r m m, m f m l r d t
+s d d m d d l, d s d m r d`,
+    chords: `G - - | C - G | D7 - G |
+G - - | C - G | D7 - G |`,
     verses: [
       {
         english: "O my comrade, see the signal\nWaving in the sky!\nReinforcements now appearing,\nVictory is nigh!",
@@ -1450,10 +1488,10 @@ G - - | C - G | D7 - G |",
     titleYoruba: "Ẹ Yọ Ninu Oluwa Ki Ẹ Si Yọ",
     key: "F Major",
     tempo: "Allegro Moderato",
-    solfa: "d :m |s :l |s :f |
-m :f |s :l |s :- |
-d' :d' |t :l |s :l |
-t :d' |t :l |s :- |",
+    solfa: `d m s s l s, m m r d
+d m s s l s, m r d
+s s s s l s, m m r d
+d m s s l s, m r d`,
     chords: "F - Bb F | C7 - F | Bb - F/C C7 | F - - |",
     verses: [
       {
@@ -1480,10 +1518,10 @@ t :d' |t :l |s :- |",
     titleYoruba: "Gẹgẹ Bi Ọlọrun Ti Njọba Loke (II)",
     key: "Eb Major",
     tempo: "Maestoso",
-    solfa: "s :s |s :l |s :f |
-m :m |m :f |s :- |
-s :s |s :l |s :f |
-m :f |s :l |s :- |",
+    solfa: `d d r m s s l, s f m r d
+d d r m s s l, s f m r d
+m f s l s f m, r d r m
+d d r m s s l, s f m r d`,
     chords: "Eb - Ab Eb | Bb7 - Eb | Ab - Eb/Bb Bb7 | Eb - - |",
     verses: [
       {
@@ -1502,10 +1540,10 @@ m :f |s :l |s :- |",
     titleYoruba: "Sibẹ Aye Wa",
     key: "D Major",
     tempo: "Maestoso",
-    solfa: "d :r |m :f |s :l |
-s :f |m :r |d :- |
-m :f |s :l |s :f |
-m :r |d :r |d :- |",
+    solfa: `d d m s s l s, m r d
+d d m s s l s, m r d
+m m f s l s f, m r d
+d d m s s l s, m r d`,
     chords: "D - G D | A7 - D | G - D/A A7 | D - - |",
     verses: [
       {
@@ -1528,8 +1566,10 @@ m :r |d :r |d :- |",
     titleYoruba: "Njẹ O Rẹ, Njẹ O Ṣe Alailera",
     key: "D Major",
     tempo: "Maestoso",
-    solfa: "d :m |s :s |l :s |
-f :m |r :d |d :- |",
+    solfa: `d d r m m r d, t l l t d
+d d r m m r d, r m r d
+m m f s s f m, r d r m
+d d r m m r d, t l l t d`,
     chords: "D - G D | A7 - Bm | G - D/A A7 | D - - |",
     verses: [
       {
@@ -1560,10 +1600,10 @@ f :m |r :d |d :- |",
     titleYoruba: "Ṣe A O Pejọ Ni Odo",
     key: "Ab Major",
     tempo: "Moderato",
-    solfa: "d :m |s :l |s :f |
-m :f |s :f |m :r |
-d :m |s :l |s :f |
-m :r |d :r |d :- |",
+    solfa: `d d d r m m, r r r m f f
+m m m f s s, f m r d r m
+d d d r m m, r r r m f f
+m m m f s s, d t l t d`,
     chords: "Ab - Db Ab | Eb7 - Ab | Db - Ab/Eb Eb7 | Ab - - |",
     verses: [
       {
@@ -1598,10 +1638,10 @@ m :r |d :r |d :- |",
     titleYoruba: "A N Sọ Nipa Ijọba Olubukun",
     key: "F Major",
     tempo: "Moderato",
-    solfa: "s :s |l :s |m :d |d :l, |
-s, :d |m :d |s :m |r :- |
-s :s |l :s |m :d |d :l, |
-s, :d |m :r |d :t, |d :- |",
+    solfa: `d d m s s l s, m r d
+d d m s s l s, m r d
+m m f s l s f, m r d
+d d m s s l s, m r d`,
     chords: "F - Bb F | C7 - F | Bb - F/C C7 | F - - |",
     verses: [
       {
@@ -1628,8 +1668,10 @@ s, :d |m :r |d :t, |d :- |",
     titleYoruba: "Mo Fẹ Dabi Jesu",
     key: "F Major",
     tempo: "Moderato",
-    solfa: "d :m |f :s |l :s |
-f :m |r :d |d :- |",
+    solfa: `d d r m s s, l l s m r
+d d r m s s, l l s m r
+m m f s l l, s f m r
+d d r m s s, l l s m r`,
     chords: "F - Bb F | C7 - Dm | Bb - F/C C7 | F - - |",
     verses: [
       {
@@ -1656,10 +1698,10 @@ f :m |r :d |d :- |",
     titleYoruba: "Igbagbọ Mi Wo Ọ Soke",
     key: "Eb Major",
     tempo: "Adagio",
-    solfa: "d :d |r :m |m :r |d :- |
-d :m |s :s |f :m |r :- |
-m :m |f :s |l :l |s :- |
-s :f |m :r |d :r |d :- |",
+    solfa: `d d r m m r, d t l l t d
+d d r m f m r, d r m r d
+m m f s s f, m r d d r m
+d d r m m r, d t l l t d`,
     chords: "Eb - Ab Eb | Bb7 - Cm | Ab - Eb/Bb Bb7 | Eb - - |",
     verses: [
       {
@@ -1686,8 +1728,10 @@ s :f |m :r |d :r |d :- |",
     titleYoruba: "Jerusalemu Loke (II)",
     key: "G Major",
     tempo: "Maestoso",
-    solfa: "d :m |s :s |l :s |
-f :m |r :d |d :- |",
+    solfa: `d d m s s l s, m r d
+d d m s s l s, m r d
+m m f s l s f, m r d
+d d m s s l s, m r d`,
     chords: "G - C G | D7 - Em | C - G/D D7 | G - - |",
     verses: [
       {
@@ -1710,10 +1754,10 @@ f :m |r :d |d :- |",
     titleYoruba: "Oluwa, Ọlọrun Mi",
     key: "Bb Major",
     tempo: "Maestoso",
-    solfa: "s, :d |d :r |m :m |
-m :r |d :t, |d :- |
-s, :d |d :r |m :m |
-m :l |s :f |m :- |",
+    solfa: `d m s s, l l l s
+d m s s, l l l s
+s s s s, d' d' t l
+s l s f, m m r d`,
     chords: "Bb - Eb Bb | F7 - Gm | Eb - Bb/F F7 | Bb - - |",
     verses: [
       {
@@ -1744,10 +1788,10 @@ m :l |s :f |m :- |",
     titleYoruba: "Sunmọ, Ọlọrun Mi, Si Ọ",
     key: "G Major",
     tempo: "Adagio",
-    solfa: "d :r |m :m |r :d |
-r :m |f :m |m :- |
-d :r |m :m |r :d |
-r :m |r :d |d :- |",
+    solfa: `d d r m m r, m f m r d
+d d r m m r, m f m
+m m f s s f, m r d t l
+d d r m m r, m f m r d`,
     chords: "G - C G | D7 - Em | C - G/D D7 | G - - |",
     verses: [
       {
@@ -1778,8 +1822,10 @@ r :m |r :d |d :- |",
     titleYoruba: "Oniṣẹgun Nla Sunmọ Nisiyi",
     key: "Ab Major",
     tempo: "Moderato",
-    solfa: "d :m |s :l |s :f |
-m :f |s :f |m :r |",
+    solfa: `d d d r m m m, m f m r d
+d d d r m m m, m f m r d
+s s l s f m r, d r m
+d d d r m m m, m f m r d`,
     chords: "Ab - Db Ab | Eb7 - Ab | Db - Ab/Eb Eb7 | Ab - - |",
     verses: [
       {
@@ -1810,8 +1856,10 @@ m :f |s :f |m :r |",
     titleYoruba: "Aṣẹgun Ati Abori",
     key: "D Major",
     tempo: "Allegro Maestoso",
-    solfa: "d :m |s :s |l :s |
-f :m |r :d |d :- |",
+    solfa: `d d m s s l s, m r d
+d d m s s l s, m r d
+m m f s l s f, m r d
+d d m s s l s, m r d`,
     chords: "D - G D | A7 - Bm | G - D/A A7 | D - - |",
     verses: [
       {
@@ -1830,10 +1878,10 @@ f :m |r :d |d :- |",
     titleYoruba: "Ẹgbẹrun Ahọn Lati Korin",
     key: "C Major",
     tempo: "Maestoso",
-    solfa: "s :d |r :m |d :r |f :m |
-m :l |t :d' |l :s |
-r :m |d :f |m :l |r :t |
-s :d |m :m |r :d |",
+    solfa: `d d r m m r d, t l l t d
+d d r m f m r, d r m r d
+m m f s s f, m r d d r m
+d d r m m r, d t l l t d`,
     chords: "C - F C | G7 - Am | F - C/G G7 | C - - |",
     verses: [
       {
@@ -1864,15 +1912,10 @@ s :d |m :m |r :d |",
     titleYoruba: "Apata Ayeraye",
     key: "Bb Major",
     tempo: "Adagio",
-    solfa: "s :l |s :m |
-d' :l |s :- |
-d :r |m |
-r :d |t, :d |
-t, :d |r :r |
-t, :s, |s, :- |
-s :l |s :m |
-d :r |m |
-r :d |t, :d |",
+    solfa: `d d d r m m, m f m r d t
+d d d r m m, m f m r d
+m m f s s f, m r d t l
+d d d r m m, m f m r d`,
     chords: "Bb - Eb Bb | F7 - Gm | Eb - Bb/F F7 | Bb - - |",
     verses: [
       {
@@ -1899,10 +1942,10 @@ r :d |t, :d |",
     titleYoruba: "Fun Ọlọrun Ni Ogo",
     key: "Ab Major",
     tempo: "Maestoso",
-    solfa: "d :m |s :l |s :f |
-m :f |s :f |m :r |
-d :m |s :l |s :f |
-m :r |d :r |d :- |",
+    solfa: `s s l t d s, d r s r m
+m f l f m d, m m r l r
+s s l t d s, d r s r m
+m s f r d t, d m m r d`,
     chords: "Ab - Db Ab | Eb7 - Fm | Db - Ab/Eb Eb7 | Ab - - |",
     verses: [
       {
@@ -1929,10 +1972,10 @@ m :r |d :r |d :- |",
     titleYoruba: "Yin, Ọkan Mi, Ọba Ọrun (II)",
     key: "D Major",
     tempo: "Maestoso",
-    solfa: "d :m |s :l |s :m |
-d :m |f :m |r :- |
-m :f |s :l |t :d' |
-t :l |s :l |s :- |",
+    solfa: `s s s s d' t l s, f m l s m f r
+m m m m l s s fe, s l t d' m fe s
+d' t l s, d' t l s
+l s f r d t d`,
     chords: "D - G D | A7 - Bm | G - D/A A7 | D - - |",
     verses: [
       {
@@ -1959,10 +2002,11 @@ t :l |s :l |s :- |",
     titleYoruba: "Ẹ Wá, Gbogbo Ẹyin Olọtitọ",
     key: "C Major",
     tempo: "Adagio",
-    solfa: "d :m |s :l |s :f |
-m :f |s :l |s :- |
-d' :t |l :s |f :m |
-r :m |f :m |r :- |",
+    solfa: `d d s, d r s
+m r m f m r, d d t l t d r t l s s
+s f m f m, r m d r t l s
+d d t d r d s, m m r m f m r
+m f m r d t, d f m r d d`,
     chords: "C - F C | G7 - Am | F - C/G G7 | C - - |",
     verses: [
       {
@@ -1993,10 +2037,10 @@ r :m |f :m |r :- |",
     titleYoruba: "Ojo Ibukun Yio Rọ",
     key: "D Major",
     tempo: "Allegro",
-    solfa: "s :s |d' :d' |t :l |
-s :l |t :d' |d' :- |
-d' :d' |r' :d' |t :l |
-s :s |l :t |d' :- |",
+    solfa: `d d d r m m, r r r m f f
+m m m f s s, f m r d r m
+d d d r m m, r r r m f f
+m m m f s s, d t l t d`,
     chords: "D - G D | A7 - D | G - D/A A7 | D - - |",
     verses: [
       {
@@ -2027,10 +2071,10 @@ s :s |l :t |d' :- |",
     titleYoruba: "Gbogbo Fun Jesu Ni Mo Fi Silẹ",
     key: "D Major",
     tempo: "Moderato",
-    solfa: "d :r |m :m |f :m |r :- |
-d :r |m :f |s :l |s :- |
-s :l |s :f |m :f |m :r |
-d :r |m :r |d :t, |d :- |",
+    solfa: `d d r m s s, l l s m r
+d d r m s s, l l s m r
+m m f s l l, s f m r
+d d r m s s, l l s m r`,
     chords: "D - G D | Em - A7 D | G - D/F# Bm | G - A7 D |",
     verses: [
       {
@@ -2065,10 +2109,10 @@ d :r |m :r |d :t, |d :- |",
     titleYoruba: "Haleluya, Haleluya, Haleluya",
     key: "D Major",
     tempo: "Allegretto",
-    solfa: "d :d |m :s |s :f |m :r |
-d :d |m :s |l :l |s :- |
-s :s |l :d' |t :l |s :m |
-r :r |m :f |m :r |d :- |",
+    solfa: `d d m s s l s, m r d
+m m f s l s f, m r d
+s s l t d t l, s l t d
+d m s l s f m, r m f m r d`,
     chords: "D - G D | A7 - D | G - D/F# Bm | Em - A7 D |",
     verses: [
       {
@@ -2099,10 +2143,10 @@ r :r |m :f |m :r |d :- |",
     titleYoruba: "Ija Ti Pari, Ogun Ti Tan",
     key: "C Major",
     tempo: "Allegro",
-    solfa: "d :m |s :s |l :s |
-f :m |r :d |d :- |
-m :f |s :l |s :f |
-m :r |d :r |d :- |",
+    solfa: `m r d m r d, m f s s f m
+m r d m r d, m f s l s
+m r d m r d, m f s s f m
+m f s l s f, m r d`,
     chords: "C - F C | G7 - Am | F - C/G G7 | C - - |",
     verses: [
       {
