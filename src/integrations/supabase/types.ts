@@ -14,6 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
+      custom_hymns: {
+        Row: {
+          chords: string | null
+          chorus: Json | null
+          created_at: string
+          created_by: string | null
+          id: string
+          key: string | null
+          number: number
+          solfa: string | null
+          tempo: string | null
+          title: string
+          title_yoruba: string
+          updated_at: string
+          verses: Json
+        }
+        Insert: {
+          chords?: string | null
+          chorus?: Json | null
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          key?: string | null
+          number: number
+          solfa?: string | null
+          tempo?: string | null
+          title: string
+          title_yoruba: string
+          updated_at?: string
+          verses?: Json
+        }
+        Update: {
+          chords?: string | null
+          chorus?: Json | null
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          key?: string | null
+          number?: number
+          solfa?: string | null
+          tempo?: string | null
+          title?: string
+          title_yoruba?: string
+          updated_at?: string
+          verses?: Json
+        }
+        Relationships: []
+      }
       hymn_overrides: {
         Row: {
           hymn_number: number

@@ -3,6 +3,7 @@ import { Search, Heart, ArrowLeft, Plus, Minus, Music, ChevronDown, ChevronUp } 
 import { hymns } from "@/data/hymns";
 import { isFavorite, toggleFavorite, setLastHymn, getFontSize } from "@/lib/store";
 import { useHymnOverrides } from "@/hooks/useHymnOverrides";
+import { useCustomHymns } from "@/hooks/useCustomHymns";
 
 interface HymnsScreenProps {
   onOpenHymn?: (num: number) => void;
@@ -17,14 +18,17 @@ const HymnsScreen = ({ initialHymn }: HymnsScreenProps) => {
   const [showSolfa, setShowSolfa] = useState(false);
   const [showChords, setShowChords] = useState(false);
   const { getOverride } = useHymnOverrides();
+  const { customHymns } = useCustomHymns();
 
-  const filtered = hymns.filter(h =>
+  const allHymns = [...hymns, ...customHymns];
+
+  const filtered = allHymns.filter(h =>
     h.title.toLowerCase().includes(search.toLowerCase()) ||
     h.titleYoruba.toLowerCase().includes(search.toLowerCase()) ||
     String(h.number).includes(search)
   );
 
-  const hymn = selectedHymn ? hymns.find(h => h.number === selectedHymn) : null;
+  const hymn = selectedHymn ? allHymns.find(h => h.number === selectedHymn) : null;
 
   const handleSelect = (num: number) => {
     setSelectedHymn(num);

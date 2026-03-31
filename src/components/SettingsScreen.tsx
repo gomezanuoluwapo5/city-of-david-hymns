@@ -103,7 +103,7 @@ const SettingsScreen = ({ onOpenAdmin }: SettingsScreenProps) => {
             </div>
             <h3 className="font-display text-lg text-foreground">City of David Covenant</h3>
             <h4 className="font-display text-sm text-foreground/80 mt-0.5">Church of God</h4>
-            <span className="text-xs text-primary italic mt-1 font-serif">Citadel of Praise</span>
+            <span className="text-xs text-primary italic mt-1 font-serif">CDCCG</span>
             <div className="mt-4 p-4 rounded-xl bg-muted/50 border border-border/50">
               <p className="text-xs text-muted-foreground leading-relaxed font-serif italic">
                 "And I will establish my covenant between me and Thee and Thy seed after Thee..."
