@@ -7,6 +7,7 @@ import NotesScreen from "@/components/NotesScreen";
 import SettingsScreen from "@/components/SettingsScreen";
 import AdminPanel from "@/components/AdminPanel";
 import { getDarkMode } from "@/lib/store";
+import { initDailyVerseNotifications } from "@/lib/dailyVerse";
 
 const Index = () => {
   const [tab, setTab] = useState("home");
@@ -14,11 +15,12 @@ const Index = () => {
   const [bibleToOpen, setBibleToOpen] = useState<{ book: string; chapter: number } | null>(null);
   const [showAdmin, setShowAdmin] = useState(false);
 
-  // Initialize dark mode
+  // Initialize dark mode and daily verse notifications
   useEffect(() => {
     if (getDarkMode()) {
       document.documentElement.classList.add("dark");
     }
+    initDailyVerseNotifications();
   }, []);
 
   const handleNavigate = (t: string) => {
