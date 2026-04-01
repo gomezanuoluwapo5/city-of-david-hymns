@@ -89,6 +89,30 @@ export type Database = {
         }
         Relationships: []
       }
+      prayer_requests: {
+        Row: {
+          created_at: string
+          id: string
+          is_read: boolean
+          name: string
+          request: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_read?: boolean
+          name?: string
+          request: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_read?: boolean
+          name?: string
+          request?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
