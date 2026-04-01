@@ -18,13 +18,14 @@ const AdminPanel = ({ onBack }: AdminPanelProps) => {
   const [passwordError, setPasswordError] = useState(false);
   const { overrides, loading, getOverride, refetch } = useHymnOverrides();
   const { customHymns, loading: customLoading, refetch: refetchCustom } = useCustomHymns();
+  const { requests: prayerRequests, loading: prayerLoading, refetch: refetchPrayer } = usePrayerRequests();
   const [expandedHymn, setExpandedHymn] = useState<number | null>(null);
   const [editingField, setEditingField] = useState<string | null>(null);
   const [editText, setEditText] = useState("");
   const [saving, setSaving] = useState(false);
   const [editorName, setEditorName] = useState(() => localStorage.getItem("cod_editor_name") || "");
   const [showAddHymn, setShowAddHymn] = useState(false);
-  const [activeTab, setActiveTab] = useState<"edit" | "add">("edit");
+  const [activeTab, setActiveTab] = useState<"edit" | "add" | "prayers">("edit");
 
   // New hymn form state
   const [newHymnNumber, setNewHymnNumber] = useState("");
