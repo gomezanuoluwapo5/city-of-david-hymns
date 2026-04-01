@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import { Moon, Sun, Type, Church, Shield, ChevronRight } from "lucide-react";
+import { Moon, Sun, Type, Church, Shield, ChevronRight, Bell, Clock } from "lucide-react";
 import { getFontSize, setFontSize, getDarkMode, setDarkMode } from "@/lib/store";
+import { getNotifSettings, setNotifSettings, requestNotifPermission } from "@/lib/dailyVerse";
 import churchLogo from "@/assets/church-logo.jpeg";
+import { useToast } from "@/hooks/use-toast";
 
 interface SettingsScreenProps {
   onOpenAdmin?: () => void;
@@ -10,6 +12,8 @@ interface SettingsScreenProps {
 const SettingsScreen = ({ onOpenAdmin }: SettingsScreenProps) => {
   const [dark, setDark] = useState(getDarkMode());
   const [fs, setFs] = useState(getFontSize());
+  const [notif, setNotif] = useState(getNotifSettings());
+  const { toast } = useToast();
 
   useEffect(() => { setDarkMode(dark); }, [dark]);
   useEffect(() => { setFontSize(fs); }, [fs]);
