@@ -3,6 +3,7 @@ import churchLogo from "@/assets/church-logo.jpeg";
 import churchHeroBg from "@/assets/church-hero-bg.jpg";
 import { getLastHymn, getLastBible, getNotes } from "@/lib/store";
 import { hymns } from "@/data/hymns";
+import DailyVerseCard from "@/components/DailyVerseCard";
 
 interface HomeScreenProps {
   onNavigate: (tab: string) => void;
