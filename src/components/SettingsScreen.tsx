@@ -72,6 +72,63 @@ const SettingsScreen = ({ onOpenAdmin }: SettingsScreenProps) => {
           </button>
         </div>
 
+        {/* Daily Verse Notification */}
+        <div className="p-5 rounded-2xl bg-card border border-border shadow-card space-y-4">
+          <button
+            onClick={async () => {
+              if (!notif.enabled) {
+                const granted = await requestNotifPermission();
+                if (!granted) {
+                  toast({ title: "Permission denied", description: "Please allow notifications in your browser settings.", variant: "destructive" });
+                  return;
+                }
+              }
+              const updated = { ...notif, enabled: !notif.enabled };
+              setNotif(updated);
+              setNotifSettings(updated);
+              toast({ title: updated.enabled ? "Daily verse notifications enabled" : "Notifications disabled" });
+            }}
+            className="w-full flex items-center gap-3"
+          >
+            <div className="w-10 h-10 rounded-xl bg-church-gold/10 flex items-center justify-center">
+              <Bell size={20} className="text-church-gold" />
+            </div>
+            <div className="flex-1 text-left">
+              <span className="text-sm font-semibold text-foreground block">Daily Verse Notification</span>
+              <span className="text-[10px] text-muted-foreground">Get a Bible verse reminder daily</span>
+            </div>
+            <div
+              className={`w-12 h-7 rounded-full transition-colors duration-300 flex items-center px-0.5 ${
+                notif.enabled ? "gradient-primary" : "bg-muted"
+              }`}
+            >
+              <div
+                className={`w-6 h-6 rounded-full bg-card shadow-md transition-transform duration-300 ${
+                  notif.enabled ? "translate-x-5" : "translate-x-0"
+                }`}
+              />
+            </div>
+          </button>
+
+          {notif.enabled && (
+            <div className="flex items-center gap-3 pt-2 border-t border-border/50">
+              <Clock size={16} className="text-muted-foreground" />
+              <span className="text-xs text-muted-foreground flex-1">Notification time</span>
+              <input
+                type="time"
+                value={`${String(notif.hour).padStart(2, '0')}:${String(notif.minute).padStart(2, '0')}`}
+                onChange={(e) => {
+                  const [h, m] = e.target.value.split(':').map(Number);
+                  const updated = { ...notif, hour: h, minute: m };
+                  setNotif(updated);
+                  setNotifSettings(updated);
+                }}
+                className="text-sm bg-muted border border-border rounded-lg px-3 py-1.5 text-foreground"
+              />
+            </div>
+          )}
+        </div>
+
         {/* Admin Panel */}
         <div className="p-5 rounded-2xl bg-card border border-border shadow-card">
           <button
