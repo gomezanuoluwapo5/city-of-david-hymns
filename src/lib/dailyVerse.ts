@@ -6,6 +6,7 @@ const NOTIF_SETTINGS_KEY = 'cod_daily_verse_notif';
 export interface DailyVerse {
   reference: string;
   text: string;
+  prayer: string;
   date: string; // YYYY-MM-DD
 }
 
