@@ -109,6 +109,11 @@ const HomeScreen = ({ onNavigate, onOpenHymn, onOpenBible }: HomeScreenProps) =>
           <DailyVerseCard />
         </div>
 
+        {/* Prayer Request */}
+        <div className="mb-6">
+          <PrayerRequestForm />
+        </div>
+
         {/* Recent Activity */}
         <div className="flex items-center gap-2 mb-4">
           <Clock size={14} className="text-muted-foreground" />
