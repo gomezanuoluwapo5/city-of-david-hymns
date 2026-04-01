@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { ArrowLeft, Lock, Save, Check, Edit3, Music, ChevronDown, ChevronRight, Plus, Trash2, X } from "lucide-react";
+import { ArrowLeft, Lock, Save, Check, Edit3, Music, ChevronDown, ChevronRight, Plus, Trash2, X, Heart } from "lucide-react";
 import { hymns } from "@/data/hymns";
 import { useHymnOverrides, saveHymnOverride } from "@/hooks/useHymnOverrides";
 import { useCustomHymns, saveCustomHymn } from "@/hooks/useCustomHymns";
+import { usePrayerRequests, markPrayerRead } from "@/hooks/usePrayerRequests";
 import { toast } from "@/hooks/use-toast";
 
 const ADMIN_PASSWORD = "cdccg2026";
@@ -17,13 +18,14 @@ const AdminPanel = ({ onBack }: AdminPanelProps) => {
   const [passwordError, setPasswordError] = useState(false);
   const { overrides, loading, getOverride, refetch } = useHymnOverrides();
   const { customHymns, loading: customLoading, refetch: refetchCustom } = useCustomHymns();
+  const { requests: prayerRequests, loading: prayerLoading, refetch: refetchPrayer } = usePrayerRequests();
   const [expandedHymn, setExpandedHymn] = useState<number | null>(null);
   const [editingField, setEditingField] = useState<string | null>(null);
   const [editText, setEditText] = useState("");
   const [saving, setSaving] = useState(false);
   const [editorName, setEditorName] = useState(() => localStorage.getItem("cod_editor_name") || "");
   const [showAddHymn, setShowAddHymn] = useState(false);
-  const [activeTab, setActiveTab] = useState<"edit" | "add">("edit");
+  const [activeTab, setActiveTab] = useState<"edit" | "add" | "prayers">("edit");
 
   // New hymn form state
   const [newHymnNumber, setNewHymnNumber] = useState("");
@@ -208,17 +210,29 @@ const AdminPanel = ({ onBack }: AdminPanelProps) => {
         <div className="flex gap-1 p-1 rounded-xl bg-muted/50 border border-border/50">
           <button
             onClick={() => setActiveTab("edit")}
-            className={`flex-1 py-2 px-3 rounded-lg text-xs font-semibold transition-all ${activeTab === "edit" ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
+            className={`flex-1 py-2 px-2 rounded-lg text-xs font-semibold transition-all ${activeTab === "edit" ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
           >
-            <Edit3 size={12} className="inline mr-1.5" />
-            Edit Lyrics
+            <Edit3 size={12} className="inline mr-1" />
+            Edit
           </button>
           <button
             onClick={() => setActiveTab("add")}
-            className={`flex-1 py-2 px-3 rounded-lg text-xs font-semibold transition-all ${activeTab === "add" ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
+            className={`flex-1 py-2 px-2 rounded-lg text-xs font-semibold transition-all ${activeTab === "add" ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
           >
-            <Plus size={12} className="inline mr-1.5" />
-            Add Hymn
+            <Plus size={12} className="inline mr-1" />
+            Add
+          </button>
+          <button
+            onClick={() => { setActiveTab("prayers"); refetchPrayer(); }}
+            className={`flex-1 py-2 px-2 rounded-lg text-xs font-semibold transition-all relative ${activeTab === "prayers" ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
+          >
+            <Heart size={12} className="inline mr-1" />
+            Prayers
+            {prayerRequests.filter(r => !r.is_read).length > 0 && (
+              <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-destructive text-destructive-foreground text-[9px] font-bold flex items-center justify-center">
+                {prayerRequests.filter(r => !r.is_read).length}
+              </span>
+            )}
           </button>
         </div>
       </div>
@@ -617,6 +631,73 @@ const AdminPanel = ({ onBack }: AdminPanelProps) => {
                 </div>
               );
             })
+          )}
+        </div>
+      )}
+
+      {/* ==================== PRAYERS TAB ==================== */}
+      {activeTab === "prayers" && (
+        <div className="px-4 mt-2 space-y-3 animate-fade-in">
+          <div className="flex items-center justify-between px-1">
+            <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
+              Prayer Requests ({prayerRequests.length})
+            </p>
+            <p className="text-[10px] text-muted-foreground">
+              {prayerRequests.filter(r => !r.is_read).length} unread
+            </p>
+          </div>
+
+          {prayerLoading ? (
+            <div className="text-center py-12">
+              <p className="text-sm text-muted-foreground">Loading...</p>
+            </div>
+          ) : prayerRequests.length === 0 ? (
+            <div className="text-center py-12">
+              <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mx-auto mb-4">
+                <Heart size={28} className="text-muted-foreground" />
+              </div>
+              <p className="text-sm text-foreground font-display mb-1">No Prayer Requests</p>
+              <p className="text-xs text-muted-foreground">Prayer requests from members will appear here.</p>
+            </div>
+          ) : (
+            prayerRequests.map((pr) => (
+              <div
+                key={pr.id}
+                className={`p-4 rounded-2xl border shadow-card transition-all ${
+                  pr.is_read
+                    ? "bg-muted/30 border-border/50 opacity-70"
+                    : "bg-card border-border"
+                }`}
+              >
+                <div className="flex items-start justify-between gap-3 mb-2">
+                  <div className="flex items-center gap-2">
+                    <div className={`w-2 h-2 rounded-full shrink-0 ${pr.is_read ? "bg-muted-foreground/30" : "bg-primary"}`} />
+                    <span className="text-sm font-semibold text-foreground">{pr.name}</span>
+                  </div>
+                  <span className="text-[10px] text-muted-foreground shrink-0">
+                    {new Date(pr.created_at).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
+                  </span>
+                </div>
+                <p className="text-xs text-foreground/80 leading-relaxed pl-4 mb-3 font-body">
+                  {pr.request}
+                </p>
+                <div className="pl-4">
+                  <button
+                    onClick={async () => {
+                      await markPrayerRead(pr.id, !pr.is_read);
+                      refetchPrayer();
+                    }}
+                    className={`text-[10px] font-semibold px-3 py-1 rounded-full transition-colors ${
+                      pr.is_read
+                        ? "bg-muted text-muted-foreground hover:bg-muted/80"
+                        : "bg-primary/10 text-primary hover:bg-primary/20"
+                    }`}
+                  >
+                    {pr.is_read ? "Mark as unread" : "✓ Mark as prayed for"}
+                  </button>
+                </div>
+              </div>
+            ))
           )}
         </div>
       )}

@@ -4,6 +4,7 @@ import churchHeroBg from "@/assets/church-hero-bg.jpg";
 import { getLastHymn, getLastBible, getNotes } from "@/lib/store";
 import { hymns } from "@/data/hymns";
 import DailyVerseCard from "@/components/DailyVerseCard";
+import PrayerRequestForm from "@/components/PrayerRequestForm";
 
 interface HomeScreenProps {
   onNavigate: (tab: string) => void;
@@ -106,6 +107,11 @@ const HomeScreen = ({ onNavigate, onOpenHymn, onOpenBible }: HomeScreenProps) =>
         {/* Daily Verse */}
         <div className="mb-6">
           <DailyVerseCard />
+        </div>
+
+        {/* Prayer Request */}
+        <div className="mb-6">
+          <PrayerRequestForm />
         </div>
 
         {/* Recent Activity */}
