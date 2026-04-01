@@ -634,6 +634,73 @@ const AdminPanel = ({ onBack }: AdminPanelProps) => {
           )}
         </div>
       )}
+
+      {/* ==================== PRAYERS TAB ==================== */}
+      {activeTab === "prayers" && (
+        <div className="px-4 mt-2 space-y-3 animate-fade-in">
+          <div className="flex items-center justify-between px-1">
+            <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
+              Prayer Requests ({prayerRequests.length})
+            </p>
+            <p className="text-[10px] text-muted-foreground">
+              {prayerRequests.filter(r => !r.is_read).length} unread
+            </p>
+          </div>
+
+          {prayerLoading ? (
+            <div className="text-center py-12">
+              <p className="text-sm text-muted-foreground">Loading...</p>
+            </div>
+          ) : prayerRequests.length === 0 ? (
+            <div className="text-center py-12">
+              <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mx-auto mb-4">
+                <Heart size={28} className="text-muted-foreground" />
+              </div>
+              <p className="text-sm text-foreground font-display mb-1">No Prayer Requests</p>
+              <p className="text-xs text-muted-foreground">Prayer requests from members will appear here.</p>
+            </div>
+          ) : (
+            prayerRequests.map((pr) => (
+              <div
+                key={pr.id}
+                className={`p-4 rounded-2xl border shadow-card transition-all ${
+                  pr.is_read
+                    ? "bg-muted/30 border-border/50 opacity-70"
+                    : "bg-card border-border"
+                }`}
+              >
+                <div className="flex items-start justify-between gap-3 mb-2">
+                  <div className="flex items-center gap-2">
+                    <div className={`w-2 h-2 rounded-full shrink-0 ${pr.is_read ? "bg-muted-foreground/30" : "bg-primary"}`} />
+                    <span className="text-sm font-semibold text-foreground">{pr.name}</span>
+                  </div>
+                  <span className="text-[10px] text-muted-foreground shrink-0">
+                    {new Date(pr.created_at).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
+                  </span>
+                </div>
+                <p className="text-xs text-foreground/80 leading-relaxed pl-4 mb-3 font-body">
+                  {pr.request}
+                </p>
+                <div className="pl-4">
+                  <button
+                    onClick={async () => {
+                      await markPrayerRead(pr.id, !pr.is_read);
+                      refetchPrayer();
+                    }}
+                    className={`text-[10px] font-semibold px-3 py-1 rounded-full transition-colors ${
+                      pr.is_read
+                        ? "bg-muted text-muted-foreground hover:bg-muted/80"
+                        : "bg-primary/10 text-primary hover:bg-primary/20"
+                    }`}
+                  >
+                    {pr.is_read ? "Mark as unread" : "✓ Mark as prayed for"}
+                  </button>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+      )}
     </div>
   );
 };
