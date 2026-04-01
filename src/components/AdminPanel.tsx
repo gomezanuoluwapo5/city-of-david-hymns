@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowLeft, Lock, Save, Check, Edit3, Music, ChevronDown, ChevronRight, Plus, Trash2, X, Heart, Eye, EyeOff } from "lucide-react";
+import { ArrowLeft, Lock, Save, Check, Edit3, Music, ChevronDown, ChevronRight, Plus, Trash2, X, Heart } from "lucide-react";
 import { hymns } from "@/data/hymns";
 import { useHymnOverrides, saveHymnOverride } from "@/hooks/useHymnOverrides";
 import { useCustomHymns, saveCustomHymn } from "@/hooks/useCustomHymns";
