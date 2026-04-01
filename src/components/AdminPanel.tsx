@@ -210,17 +210,29 @@ const AdminPanel = ({ onBack }: AdminPanelProps) => {
         <div className="flex gap-1 p-1 rounded-xl bg-muted/50 border border-border/50">
           <button
             onClick={() => setActiveTab("edit")}
-            className={`flex-1 py-2 px-3 rounded-lg text-xs font-semibold transition-all ${activeTab === "edit" ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
+            className={`flex-1 py-2 px-2 rounded-lg text-xs font-semibold transition-all ${activeTab === "edit" ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
           >
-            <Edit3 size={12} className="inline mr-1.5" />
-            Edit Lyrics
+            <Edit3 size={12} className="inline mr-1" />
+            Edit
           </button>
           <button
             onClick={() => setActiveTab("add")}
-            className={`flex-1 py-2 px-3 rounded-lg text-xs font-semibold transition-all ${activeTab === "add" ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
+            className={`flex-1 py-2 px-2 rounded-lg text-xs font-semibold transition-all ${activeTab === "add" ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
           >
-            <Plus size={12} className="inline mr-1.5" />
-            Add Hymn
+            <Plus size={12} className="inline mr-1" />
+            Add
+          </button>
+          <button
+            onClick={() => { setActiveTab("prayers"); refetchPrayer(); }}
+            className={`flex-1 py-2 px-2 rounded-lg text-xs font-semibold transition-all relative ${activeTab === "prayers" ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
+          >
+            <Heart size={12} className="inline mr-1" />
+            Prayers
+            {prayerRequests.filter(r => !r.is_read).length > 0 && (
+              <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-destructive text-destructive-foreground text-[9px] font-bold flex items-center justify-center">
+                {prayerRequests.filter(r => !r.is_read).length}
+              </span>
+            )}
           </button>
         </div>
       </div>
