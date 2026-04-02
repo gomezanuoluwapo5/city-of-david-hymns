@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { ArrowLeft, Lock, Save, Check, Edit3, Music, ChevronDown, ChevronRight, Plus, Trash2, X, Heart, CalendarDays } from "lucide-react";
+import { ArrowLeft, Lock, Save, Check, Edit3, Music, ChevronDown, ChevronRight, Plus, Trash2, X, Heart, CalendarDays, Star, Pencil } from "lucide-react";
 import { hymns } from "@/data/hymns";
 import { useHymnOverrides, saveHymnOverride } from "@/hooks/useHymnOverrides";
 import { useCustomHymns, saveCustomHymn } from "@/hooks/useCustomHymns";
 import { usePrayerRequests, markPrayerRead, deletePrayerRequest } from "@/hooks/usePrayerRequests";
-import { useChurchEvents, saveChurchEvent, deleteChurchEvent } from "@/hooks/useChurchEvents";
+import { useChurchEvents, saveChurchEvent, updateChurchEvent, deleteChurchEvent } from "@/hooks/useChurchEvents";
+import { useTestimonies, markTestimonyRead, deleteTestimony } from "@/hooks/useTestimonies";
 import { toast } from "@/hooks/use-toast";
 
 const ADMIN_PASSWORD = "cdccg2026";
@@ -21,13 +22,14 @@ const AdminPanel = ({ onBack }: AdminPanelProps) => {
   const { customHymns, loading: customLoading, refetch: refetchCustom } = useCustomHymns();
   const { requests: prayerRequests, loading: prayerLoading, refetch: refetchPrayer } = usePrayerRequests();
   const { events: churchEvents, loading: eventsLoading, refetch: refetchEvents } = useChurchEvents();
+  const { testimonies, loading: testimoniesLoading, refetch: refetchTestimonies } = useTestimonies();
   const [expandedHymn, setExpandedHymn] = useState<number | null>(null);
   const [editingField, setEditingField] = useState<string | null>(null);
   const [editText, setEditText] = useState("");
   const [saving, setSaving] = useState(false);
   const [editorName, setEditorName] = useState(() => localStorage.getItem("cod_editor_name") || "");
   const [showAddHymn, setShowAddHymn] = useState(false);
-  const [activeTab, setActiveTab] = useState<"edit" | "add" | "prayers" | "events">("edit");
+  const [activeTab, setActiveTab] = useState<"edit" | "add" | "prayers" | "events" | "testimonies">("edit");
 
   // Event form state
   const [eventTitle, setEventTitle] = useState("");
@@ -36,6 +38,7 @@ const AdminPanel = ({ onBack }: AdminPanelProps) => {
   const [eventTime, setEventTime] = useState("");
   const [eventLocation, setEventLocation] = useState("");
   const [showAddEvent, setShowAddEvent] = useState(false);
+  const [editingEventId, setEditingEventId] = useState<string | null>(null);
 
   // New hymn form state
   const [newHymnNumber, setNewHymnNumber] = useState("");
