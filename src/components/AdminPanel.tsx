@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { ArrowLeft, Lock, Save, Check, Edit3, Music, ChevronDown, ChevronRight, Plus, Trash2, X, Heart } from "lucide-react";
+import { ArrowLeft, Lock, Save, Check, Edit3, Music, ChevronDown, ChevronRight, Plus, Trash2, X, Heart, CalendarDays } from "lucide-react";
 import { hymns } from "@/data/hymns";
 import { useHymnOverrides, saveHymnOverride } from "@/hooks/useHymnOverrides";
 import { useCustomHymns, saveCustomHymn } from "@/hooks/useCustomHymns";
-import { usePrayerRequests, markPrayerRead } from "@/hooks/usePrayerRequests";
+import { usePrayerRequests, markPrayerRead, deletePrayerRequest } from "@/hooks/usePrayerRequests";
+import { useChurchEvents, saveChurchEvent, deleteChurchEvent } from "@/hooks/useChurchEvents";
 import { toast } from "@/hooks/use-toast";
 
 const ADMIN_PASSWORD = "cdccg2026";
