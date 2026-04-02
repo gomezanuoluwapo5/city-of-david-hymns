@@ -220,40 +220,33 @@ const AdminPanel = ({ onBack }: AdminPanelProps) => {
 
       {/* Tab Switcher */}
       <div className="px-4 pt-3 pb-1">
-        <div className="flex gap-1 p-1 rounded-xl bg-muted/50 border border-border/50">
-          <button
-            onClick={() => setActiveTab("edit")}
-            className={`flex-1 py-2 px-2 rounded-lg text-xs font-semibold transition-all ${activeTab === "edit" ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
-          >
-            <Edit3 size={12} className="inline mr-1" />
-            Edit
-          </button>
-          <button
-            onClick={() => setActiveTab("add")}
-            className={`flex-1 py-2 px-2 rounded-lg text-xs font-semibold transition-all ${activeTab === "add" ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
-          >
-            <Plus size={12} className="inline mr-1" />
-            Add
-          </button>
-          <button
-            onClick={() => { setActiveTab("prayers"); refetchPrayer(); }}
-            className={`flex-1 py-2 px-2 rounded-lg text-xs font-semibold transition-all relative ${activeTab === "prayers" ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
-          >
-            <Heart size={12} className="inline mr-1" />
-            Prayers
-            {prayerRequests.filter(r => !r.is_read).length > 0 && (
-              <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-destructive text-destructive-foreground text-[9px] font-bold flex items-center justify-center">
-                {prayerRequests.filter(r => !r.is_read).length}
-              </span>
-            )}
-          </button>
-          <button
-            onClick={() => { setActiveTab("events"); refetchEvents(); }}
-            className={`flex-1 py-2 px-2 rounded-lg text-xs font-semibold transition-all ${activeTab === "events" ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
-          >
-            <CalendarDays size={12} className="inline mr-1" />
-            Events
-          </button>
+        <div className="flex gap-1 p-1 rounded-xl bg-muted/50 border border-border/50 overflow-x-auto">
+          {[
+            { id: "edit" as const, icon: Edit3, label: "Edit" },
+            { id: "add" as const, icon: Plus, label: "Add" },
+            { id: "prayers" as const, icon: Heart, label: "Prayers", badge: prayerRequests.filter(r => !r.is_read).length },
+            { id: "events" as const, icon: CalendarDays, label: "Events" },
+            { id: "testimonies" as const, icon: Star, label: "Testimonies", badge: testimonies.filter(t => !t.is_read).length },
+          ].map((t) => (
+            <button
+              key={t.id}
+              onClick={() => {
+                setActiveTab(t.id);
+                if (t.id === "prayers") refetchPrayer();
+                if (t.id === "events") refetchEvents();
+                if (t.id === "testimonies") refetchTestimonies();
+              }}
+              className={`flex-1 py-2 px-1.5 rounded-lg text-[10px] font-semibold transition-all relative whitespace-nowrap ${activeTab === t.id ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
+            >
+              <t.icon size={11} className="inline mr-0.5" />
+              {t.label}
+              {t.badge && t.badge > 0 ? (
+                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-destructive text-destructive-foreground text-[8px] font-bold flex items-center justify-center">
+                  {t.badge}
+                </span>
+              ) : null}
+            </button>
+          ))}
         </div>
       </div>
 
