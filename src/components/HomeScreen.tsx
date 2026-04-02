@@ -5,6 +5,7 @@ import { getLastHymn, getLastBible, getNotes } from "@/lib/store";
 import { hymns } from "@/data/hymns";
 import DailyVerseCard from "@/components/DailyVerseCard";
 import PrayerRequestForm from "@/components/PrayerRequestForm";
+import ChurchEventsCard from "@/components/ChurchEventsCard";
 
 interface HomeScreenProps {
   onNavigate: (tab: string) => void;
