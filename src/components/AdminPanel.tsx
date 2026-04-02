@@ -244,6 +244,13 @@ const AdminPanel = ({ onBack }: AdminPanelProps) => {
               </span>
             )}
           </button>
+          <button
+            onClick={() => { setActiveTab("events"); refetchEvents(); }}
+            className={`flex-1 py-2 px-2 rounded-lg text-xs font-semibold transition-all ${activeTab === "events" ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
+          >
+            <CalendarDays size={12} className="inline mr-1" />
+            Events
+          </button>
         </div>
       </div>
 
