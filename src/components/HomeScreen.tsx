@@ -1,4 +1,4 @@
-import { Music, BookOpen, StickyNote, Heart, Clock, Sparkles } from "lucide-react";
+import { Music, BookOpen, StickyNote, Heart, Clock, Sparkles, Gamepad2 } from "lucide-react";
 import churchLogo from "@/assets/church-logo.jpeg";
 import churchHeroBg from "@/assets/church-hero-bg.jpg";
 import { getLastHymn, getLastBible, getNotes } from "@/lib/store";
