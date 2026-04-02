@@ -110,6 +110,11 @@ const HomeScreen = ({ onNavigate, onOpenHymn, onOpenBible }: HomeScreenProps) =>
           <DailyVerseCard />
         </div>
 
+        {/* Church Events */}
+        <div className="mb-6">
+          <ChurchEventsCard />
+        </div>
+
         {/* Prayer Request */}
         <div className="mb-6">
           <PrayerRequestForm />
