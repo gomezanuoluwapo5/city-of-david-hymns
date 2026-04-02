@@ -1,4 +1,4 @@
-import { Music, BookOpen, StickyNote, Heart, Clock, Sparkles } from "lucide-react";
+import { Music, BookOpen, StickyNote, Heart, Clock, Sparkles, Gamepad2 } from "lucide-react";
 import churchLogo from "@/assets/church-logo.jpeg";
 import churchHeroBg from "@/assets/church-hero-bg.jpg";
 import { getLastHymn, getLastBible, getNotes } from "@/lib/store";
@@ -6,6 +6,7 @@ import { hymns } from "@/data/hymns";
 import DailyVerseCard from "@/components/DailyVerseCard";
 import PrayerRequestForm from "@/components/PrayerRequestForm";
 import ChurchEventsCard from "@/components/ChurchEventsCard";
+import TestimonyForm from "@/components/TestimonyForm";
 
 interface HomeScreenProps {
   onNavigate: (tab: string) => void;
@@ -105,6 +106,21 @@ const HomeScreen = ({ onNavigate, onOpenHymn, onOpenBible }: HomeScreenProps) =>
           </div>
         </div>
 
+        {/* Bible Games Card */}
+        <button
+          onClick={() => onNavigate("games")}
+          className="w-full flex items-center gap-4 p-4 mb-6 rounded-2xl bg-card border border-border shadow-card hover:shadow-elevated hover:-translate-y-0.5 transition-all duration-300 text-left group"
+        >
+          <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+            <Gamepad2 size={22} className="text-primary-foreground" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-display font-semibold text-foreground">Bible Games</p>
+            <p className="text-[10px] text-muted-foreground font-body">Quiz, Verse Completion & more</p>
+          </div>
+          <span className="text-[9px] font-bold text-primary bg-primary/10 px-2 py-1 rounded-full uppercase tracking-wider">Play</span>
+        </button>
+
         {/* Daily Verse */}
         <div className="mb-6">
           <DailyVerseCard />
@@ -118,6 +134,11 @@ const HomeScreen = ({ onNavigate, onOpenHymn, onOpenBible }: HomeScreenProps) =>
         {/* Prayer Request */}
         <div className="mb-6">
           <PrayerRequestForm />
+        </div>
+
+        {/* Testimony */}
+        <div className="mb-6">
+          <TestimonyForm />
         </div>
 
         {/* Recent Activity */}

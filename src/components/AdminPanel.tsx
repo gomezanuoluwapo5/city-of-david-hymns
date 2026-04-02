@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { ArrowLeft, Lock, Save, Check, Edit3, Music, ChevronDown, ChevronRight, Plus, Trash2, X, Heart, CalendarDays } from "lucide-react";
+import { ArrowLeft, Lock, Save, Check, Edit3, Music, ChevronDown, ChevronRight, Plus, Trash2, X, Heart, CalendarDays, Star, Pencil } from "lucide-react";
 import { hymns } from "@/data/hymns";
 import { useHymnOverrides, saveHymnOverride } from "@/hooks/useHymnOverrides";
 import { useCustomHymns, saveCustomHymn } from "@/hooks/useCustomHymns";
 import { usePrayerRequests, markPrayerRead, deletePrayerRequest } from "@/hooks/usePrayerRequests";
-import { useChurchEvents, saveChurchEvent, deleteChurchEvent } from "@/hooks/useChurchEvents";
+import { useChurchEvents, saveChurchEvent, updateChurchEvent, deleteChurchEvent } from "@/hooks/useChurchEvents";
+import { useTestimonies, markTestimonyRead, deleteTestimony } from "@/hooks/useTestimonies";
 import { toast } from "@/hooks/use-toast";
 
 const ADMIN_PASSWORD = "cdccg2026";
@@ -21,13 +22,14 @@ const AdminPanel = ({ onBack }: AdminPanelProps) => {
   const { customHymns, loading: customLoading, refetch: refetchCustom } = useCustomHymns();
   const { requests: prayerRequests, loading: prayerLoading, refetch: refetchPrayer } = usePrayerRequests();
   const { events: churchEvents, loading: eventsLoading, refetch: refetchEvents } = useChurchEvents();
+  const { testimonies, loading: testimoniesLoading, refetch: refetchTestimonies } = useTestimonies();
   const [expandedHymn, setExpandedHymn] = useState<number | null>(null);
   const [editingField, setEditingField] = useState<string | null>(null);
   const [editText, setEditText] = useState("");
   const [saving, setSaving] = useState(false);
   const [editorName, setEditorName] = useState(() => localStorage.getItem("cod_editor_name") || "");
   const [showAddHymn, setShowAddHymn] = useState(false);
-  const [activeTab, setActiveTab] = useState<"edit" | "add" | "prayers" | "events">("edit");
+  const [activeTab, setActiveTab] = useState<"edit" | "add" | "prayers" | "events" | "testimonies">("edit");
 
   // Event form state
   const [eventTitle, setEventTitle] = useState("");
@@ -36,6 +38,7 @@ const AdminPanel = ({ onBack }: AdminPanelProps) => {
   const [eventTime, setEventTime] = useState("");
   const [eventLocation, setEventLocation] = useState("");
   const [showAddEvent, setShowAddEvent] = useState(false);
+  const [editingEventId, setEditingEventId] = useState<string | null>(null);
 
   // New hymn form state
   const [newHymnNumber, setNewHymnNumber] = useState("");
@@ -217,40 +220,33 @@ const AdminPanel = ({ onBack }: AdminPanelProps) => {
 
       {/* Tab Switcher */}
       <div className="px-4 pt-3 pb-1">
-        <div className="flex gap-1 p-1 rounded-xl bg-muted/50 border border-border/50">
-          <button
-            onClick={() => setActiveTab("edit")}
-            className={`flex-1 py-2 px-2 rounded-lg text-xs font-semibold transition-all ${activeTab === "edit" ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
-          >
-            <Edit3 size={12} className="inline mr-1" />
-            Edit
-          </button>
-          <button
-            onClick={() => setActiveTab("add")}
-            className={`flex-1 py-2 px-2 rounded-lg text-xs font-semibold transition-all ${activeTab === "add" ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
-          >
-            <Plus size={12} className="inline mr-1" />
-            Add
-          </button>
-          <button
-            onClick={() => { setActiveTab("prayers"); refetchPrayer(); }}
-            className={`flex-1 py-2 px-2 rounded-lg text-xs font-semibold transition-all relative ${activeTab === "prayers" ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
-          >
-            <Heart size={12} className="inline mr-1" />
-            Prayers
-            {prayerRequests.filter(r => !r.is_read).length > 0 && (
-              <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-destructive text-destructive-foreground text-[9px] font-bold flex items-center justify-center">
-                {prayerRequests.filter(r => !r.is_read).length}
-              </span>
-            )}
-          </button>
-          <button
-            onClick={() => { setActiveTab("events"); refetchEvents(); }}
-            className={`flex-1 py-2 px-2 rounded-lg text-xs font-semibold transition-all ${activeTab === "events" ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
-          >
-            <CalendarDays size={12} className="inline mr-1" />
-            Events
-          </button>
+        <div className="flex gap-1 p-1 rounded-xl bg-muted/50 border border-border/50 overflow-x-auto">
+          {[
+            { id: "edit" as const, icon: Edit3, label: "Edit" },
+            { id: "add" as const, icon: Plus, label: "Add" },
+            { id: "prayers" as const, icon: Heart, label: "Prayers", badge: prayerRequests.filter(r => !r.is_read).length },
+            { id: "events" as const, icon: CalendarDays, label: "Events" },
+            { id: "testimonies" as const, icon: Star, label: "Testimonies", badge: testimonies.filter(t => !t.is_read).length },
+          ].map((t) => (
+            <button
+              key={t.id}
+              onClick={() => {
+                setActiveTab(t.id);
+                if (t.id === "prayers") refetchPrayer();
+                if (t.id === "events") refetchEvents();
+                if (t.id === "testimonies") refetchTestimonies();
+              }}
+              className={`flex-1 py-2 px-1.5 rounded-lg text-[10px] font-semibold transition-all relative whitespace-nowrap ${activeTab === t.id ? "bg-card shadow-card text-foreground" : "text-muted-foreground"}`}
+            >
+              <t.icon size={11} className="inline mr-0.5" />
+              {t.label}
+              {t.badge && t.badge > 0 ? (
+                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-destructive text-destructive-foreground text-[8px] font-bold flex items-center justify-center">
+                  {t.badge}
+                </span>
+              ) : null}
+            </button>
+          ))}
         </div>
       </div>
 
@@ -857,30 +853,165 @@ const AdminPanel = ({ onBack }: AdminPanelProps) => {
           ) : (
             churchEvents.map((event) => (
               <div key={event.id} className="p-4 rounded-2xl bg-card border border-border shadow-card">
-                <div className="flex items-start justify-between gap-3 mb-2">
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold text-foreground">{event.title}</p>
-                    {event.description && (
-                      <p className="text-xs text-muted-foreground mt-0.5 font-body">{event.description}</p>
-                    )}
+                {editingEventId === event.id ? (
+                  <div className="space-y-3">
+                    <input type="text" value={eventTitle} onChange={(e) => setEventTitle(e.target.value)} placeholder="Title" className="w-full px-3 py-2 rounded-xl bg-muted/50 border border-border text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent/20" />
+                    <textarea value={eventDescription} onChange={(e) => setEventDescription(e.target.value)} placeholder="Description" rows={2} className="w-full px-3 py-2 rounded-xl bg-muted/50 border border-border text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent/20 resize-none" />
+                    <div className="grid grid-cols-2 gap-2">
+                      <input type="date" value={eventDate} onChange={(e) => setEventDate(e.target.value)} className="w-full px-3 py-2 rounded-xl bg-muted/50 border border-border text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent/20" />
+                      <input type="time" value={eventTime} onChange={(e) => setEventTime(e.target.value)} className="w-full px-3 py-2 rounded-xl bg-muted/50 border border-border text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent/20" />
+                    </div>
+                    <input type="text" value={eventLocation} onChange={(e) => setEventLocation(e.target.value)} placeholder="Location" className="w-full px-3 py-2 rounded-xl bg-muted/50 border border-border text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent/20" />
+                    <div className="flex gap-2">
+                      <button
+                        onClick={async () => {
+                          if (!eventTitle.trim() || !eventDate || !eventTime) return;
+                          setSaving(true);
+                          const dateTime = `${eventDate}T${eventTime}:00`;
+                          const { error } = await updateChurchEvent(event.id, {
+                            title: eventTitle.trim(),
+                            description: eventDescription.trim() || undefined,
+                            event_date: dateTime,
+                            location: eventLocation.trim() || undefined,
+                          });
+                          setSaving(false);
+                          if (error) {
+                            toast({ title: "Error", description: error.message, variant: "destructive" });
+                          } else {
+                            toast({ title: "Event updated!" });
+                            setEditingEventId(null);
+                            refetchEvents();
+                          }
+                        }}
+                        disabled={saving}
+                        className="flex items-center gap-1 px-4 py-2 rounded-xl gradient-primary text-primary-foreground text-xs font-semibold"
+                      >
+                        <Save size={12} /> {saving ? "Saving..." : "Save"}
+                      </button>
+                      <button onClick={() => setEditingEventId(null)} className="px-4 py-2 rounded-xl bg-muted text-xs font-semibold text-muted-foreground">Cancel</button>
+                    </div>
                   </div>
+                ) : (
+                  <>
+                    <div className="flex items-start justify-between gap-3 mb-2">
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-semibold text-foreground">{event.title}</p>
+                        {event.description && (
+                          <p className="text-xs text-muted-foreground mt-0.5 font-body">{event.description}</p>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-1 shrink-0">
+                        <button
+                          onClick={() => {
+                            setEditingEventId(event.id);
+                            setEventTitle(event.title);
+                            setEventDescription(event.description || "");
+                            const d = new Date(event.event_date);
+                            setEventDate(d.toISOString().split("T")[0]);
+                            setEventTime(d.toTimeString().slice(0, 5));
+                            setEventLocation(event.location || "");
+                          }}
+                          className="p-1.5 rounded-lg hover:bg-muted transition-colors"
+                        >
+                          <Pencil size={14} className="text-muted-foreground" />
+                        </button>
+                        <button
+                          onClick={async () => {
+                            if (confirm("Delete this event?")) {
+                              await deleteChurchEvent(event.id);
+                              refetchEvents();
+                              toast({ title: "Deleted", description: "Event removed." });
+                            }
+                          }}
+                          className="p-1.5 rounded-lg hover:bg-destructive/10 transition-colors"
+                        >
+                          <Trash2 size={14} className="text-destructive" />
+                        </button>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 text-[10px] text-muted-foreground">
+                      <span>{new Date(event.event_date).toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric" })}</span>
+                      <span>{new Date(event.event_date).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}</span>
+                      {event.location && <span>📍 {event.location}</span>}
+                    </div>
+                  </>
+                )}
+              </div>
+            ))
+          )}
+        </div>
+      )}
+
+      {/* ==================== TESTIMONIES TAB ==================== */}
+      {activeTab === "testimonies" && (
+        <div className="px-4 mt-2 space-y-3 animate-fade-in">
+          <div className="flex items-center justify-between px-1">
+            <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
+              Testimonies ({testimonies.length})
+            </p>
+            <p className="text-[10px] text-muted-foreground">
+              {testimonies.filter(t => !t.is_read).length} unread
+            </p>
+          </div>
+
+          {testimoniesLoading ? (
+            <div className="text-center py-12">
+              <p className="text-sm text-muted-foreground">Loading...</p>
+            </div>
+          ) : testimonies.length === 0 ? (
+            <div className="text-center py-12">
+              <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mx-auto mb-4">
+                <Star size={28} className="text-muted-foreground" />
+              </div>
+              <p className="text-sm text-foreground font-display mb-1">No Testimonies</p>
+              <p className="text-xs text-muted-foreground">Testimonies from members will appear here.</p>
+            </div>
+          ) : (
+            testimonies.map((t) => (
+              <div
+                key={t.id}
+                className={`p-4 rounded-2xl border shadow-card transition-all ${
+                  t.is_read ? "bg-muted/30 border-border/50 opacity-70" : "bg-card border-border"
+                }`}
+              >
+                <div className="flex items-start justify-between gap-3 mb-2">
+                  <div className="flex items-center gap-2">
+                    <div className={`w-2 h-2 rounded-full shrink-0 ${t.is_read ? "bg-muted-foreground/30" : "bg-accent"}`} />
+                    <span className="text-sm font-semibold text-foreground">{t.name}</span>
+                  </div>
+                  <span className="text-[10px] text-muted-foreground shrink-0">
+                    {new Date(t.created_at).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
+                  </span>
+                </div>
+                <p className="text-xs text-foreground/80 leading-relaxed pl-4 mb-3 font-body">
+                  {t.testimony}
+                </p>
+                <div className="pl-4 flex items-center gap-2">
                   <button
                     onClick={async () => {
-                      if (confirm("Delete this event?")) {
-                        await deleteChurchEvent(event.id);
-                        refetchEvents();
-                        toast({ title: "Deleted", description: "Event removed." });
+                      await markTestimonyRead(t.id, !t.is_read);
+                      refetchTestimonies();
+                    }}
+                    className={`text-[10px] font-semibold px-3 py-1 rounded-full transition-colors ${
+                      t.is_read
+                        ? "bg-muted text-muted-foreground hover:bg-muted/80"
+                        : "bg-accent/10 text-accent hover:bg-accent/20"
+                    }`}
+                  >
+                    {t.is_read ? "Mark as unread" : "✓ Mark as read"}
+                  </button>
+                  <button
+                    onClick={async () => {
+                      if (confirm("Delete this testimony?")) {
+                        await deleteTestimony(t.id);
+                        refetchTestimonies();
+                        toast({ title: "Deleted", description: "Testimony removed." });
                       }
                     }}
-                    className="p-1.5 rounded-lg hover:bg-destructive/10 transition-colors shrink-0"
+                    className="text-[10px] font-semibold px-3 py-1 rounded-full bg-destructive/10 text-destructive hover:bg-destructive/20 transition-colors"
                   >
-                    <Trash2 size={14} className="text-destructive" />
+                    <Trash2 size={10} className="inline mr-0.5" /> Delete
                   </button>
-                </div>
-                <div className="flex items-center gap-3 text-[10px] text-muted-foreground">
-                  <span>{new Date(event.event_date).toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric" })}</span>
-                  <span>{new Date(event.event_date).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}</span>
-                  {event.location && <span>📍 {event.location}</span>}
                 </div>
               </div>
             ))

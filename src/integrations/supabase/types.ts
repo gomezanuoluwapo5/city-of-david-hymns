@@ -143,6 +143,30 @@ export type Database = {
         }
         Relationships: []
       }
+      testimonies: {
+        Row: {
+          created_at: string
+          id: string
+          is_read: boolean
+          name: string
+          testimony: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_read?: boolean
+          name?: string
+          testimony: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_read?: boolean
+          name?: string
+          testimony?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

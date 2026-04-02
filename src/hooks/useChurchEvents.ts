@@ -45,6 +45,30 @@ export async function saveChurchEvent(event: {
   const { error } = await supabase
     .from("church_events")
     .insert(event as any);
+
+  // Send browser notification
+  if (!error && Notification.permission === "granted") {
+    try {
+      new Notification("📅 New Church Event", {
+        body: `${event.title}`,
+        icon: "/favicon.ico",
+      });
+    } catch { /* ignore */ }
+  }
+
+  return { error };
+}
+
+export async function updateChurchEvent(id: string, event: {
+  title?: string;
+  description?: string;
+  event_date?: string;
+  location?: string;
+}) {
+  const { error } = await supabase
+    .from("church_events")
+    .update(event as any)
+    .eq("id", id);
   return { error };
 }
 
