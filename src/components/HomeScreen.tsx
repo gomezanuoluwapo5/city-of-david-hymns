@@ -5,6 +5,7 @@ import { getLastHymn, getLastBible, getNotes } from "@/lib/store";
 import { hymns } from "@/data/hymns";
 import DailyVerseCard from "@/components/DailyVerseCard";
 import PrayerRequestForm from "@/components/PrayerRequestForm";
+import ChurchEventsCard from "@/components/ChurchEventsCard";
 
 interface HomeScreenProps {
   onNavigate: (tab: string) => void;
@@ -107,6 +108,11 @@ const HomeScreen = ({ onNavigate, onOpenHymn, onOpenBible }: HomeScreenProps) =>
         {/* Daily Verse */}
         <div className="mb-6">
           <DailyVerseCard />
+        </div>
+
+        {/* Church Events */}
+        <div className="mb-6">
+          <ChurchEventsCard />
         </div>
 
         {/* Prayer Request */}

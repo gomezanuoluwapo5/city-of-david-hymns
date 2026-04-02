@@ -14,6 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
+      church_events: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          description: string | null
+          event_date: string
+          id: string
+          location: string | null
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          event_date: string
+          id?: string
+          location?: string | null
+          title: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          event_date?: string
+          id?: string
+          location?: string | null
+          title?: string
+        }
+        Relationships: []
+      }
       custom_hymns: {
         Row: {
           chords: string | null

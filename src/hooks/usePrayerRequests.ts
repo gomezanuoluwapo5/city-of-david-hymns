@@ -47,3 +47,11 @@ export async function markPrayerRead(id: string, isRead: boolean) {
     .eq("id", id);
   return { error };
 }
+
+export async function deletePrayerRequest(id: string) {
+  const { error } = await supabase
+    .from("prayer_requests")
+    .delete()
+    .eq("id", id);
+  return { error };
+}
