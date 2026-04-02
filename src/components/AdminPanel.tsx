@@ -698,7 +698,7 @@ const AdminPanel = ({ onBack }: AdminPanelProps) => {
                 <p className="text-xs text-foreground/80 leading-relaxed pl-4 mb-3 font-body">
                   {pr.request}
                 </p>
-                <div className="pl-4">
+                <div className="pl-4 flex items-center gap-2">
                   <button
                     onClick={async () => {
                       await markPrayerRead(pr.id, !pr.is_read);
@@ -712,6 +712,175 @@ const AdminPanel = ({ onBack }: AdminPanelProps) => {
                   >
                     {pr.is_read ? "Mark as unread" : "✓ Mark as prayed for"}
                   </button>
+                  <button
+                    onClick={async () => {
+                      if (confirm("Delete this prayer request?")) {
+                        await deletePrayerRequest(pr.id);
+                        refetchPrayer();
+                        toast({ title: "Deleted", description: "Prayer request removed." });
+                      }
+                    }}
+                    className="text-[10px] font-semibold px-3 py-1 rounded-full bg-destructive/10 text-destructive hover:bg-destructive/20 transition-colors"
+                  >
+                    <Trash2 size={10} className="inline mr-0.5" /> Delete
+                  </button>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+      )}
+
+      {/* ==================== EVENTS TAB ==================== */}
+      {activeTab === "events" && (
+        <div className="px-4 mt-2 space-y-3 animate-fade-in">
+          {/* Add Event Form */}
+          {!showAddEvent ? (
+            <button
+              onClick={() => setShowAddEvent(true)}
+              className="w-full flex items-center justify-center gap-2 p-4 rounded-2xl border-2 border-dashed border-accent/30 text-accent hover:bg-accent/5 transition-colors"
+            >
+              <Plus size={18} />
+              <span className="text-sm font-semibold">Add New Event</span>
+            </button>
+          ) : (
+            <div className="rounded-2xl bg-card border border-border shadow-card overflow-hidden">
+              <div className="flex items-center justify-between px-4 py-3 border-b border-border/50 bg-accent/5">
+                <h3 className="text-sm font-display text-foreground">New Event</h3>
+                <button onClick={() => { setShowAddEvent(false); setEventTitle(""); setEventDescription(""); setEventDate(""); setEventTime(""); setEventLocation(""); }} className="p-1.5 rounded-lg hover:bg-muted transition-colors">
+                  <X size={16} className="text-muted-foreground" />
+                </button>
+              </div>
+              <div className="p-4 space-y-3">
+                <div>
+                  <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1 block">Event Title *</label>
+                  <input
+                    type="text"
+                    value={eventTitle}
+                    onChange={(e) => setEventTitle(e.target.value)}
+                    placeholder="e.g. Sunday Service"
+                    className="w-full px-3 py-2 rounded-xl bg-muted/50 border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-accent/20"
+                  />
+                </div>
+                <div>
+                  <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1 block">Description</label>
+                  <textarea
+                    value={eventDescription}
+                    onChange={(e) => setEventDescription(e.target.value)}
+                    placeholder="Event details..."
+                    rows={3}
+                    className="w-full px-3 py-2 rounded-xl bg-muted/50 border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-accent/20 resize-none"
+                  />
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <div>
+                    <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1 block">Date *</label>
+                    <input
+                      type="date"
+                      value={eventDate}
+                      onChange={(e) => setEventDate(e.target.value)}
+                      className="w-full px-3 py-2 rounded-xl bg-muted/50 border border-border text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent/20"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1 block">Time *</label>
+                    <input
+                      type="time"
+                      value={eventTime}
+                      onChange={(e) => setEventTime(e.target.value)}
+                      className="w-full px-3 py-2 rounded-xl bg-muted/50 border border-border text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent/20"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1 block">Location</label>
+                  <input
+                    type="text"
+                    value={eventLocation}
+                    onChange={(e) => setEventLocation(e.target.value)}
+                    placeholder="e.g. Church Hall"
+                    className="w-full px-3 py-2 rounded-xl bg-muted/50 border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-accent/20"
+                  />
+                </div>
+                <button
+                  onClick={async () => {
+                    if (!eventTitle.trim() || !eventDate || !eventTime) {
+                      toast({ title: "Missing fields", description: "Please fill in event title, date, and time.", variant: "destructive" });
+                      return;
+                    }
+                    setSaving(true);
+                    const dateTime = `${eventDate}T${eventTime}:00`;
+                    const { error } = await saveChurchEvent({
+                      title: eventTitle.trim(),
+                      description: eventDescription.trim() || undefined,
+                      event_date: dateTime,
+                      location: eventLocation.trim() || undefined,
+                      created_by: editorName || undefined,
+                    });
+                    setSaving(false);
+                    if (error) {
+                      toast({ title: "Error saving event", description: error.message, variant: "destructive" });
+                    } else {
+                      toast({ title: "Event added!" });
+                      setShowAddEvent(false);
+                      setEventTitle(""); setEventDescription(""); setEventDate(""); setEventTime(""); setEventLocation("");
+                      refetchEvents();
+                    }
+                  }}
+                  disabled={saving}
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl gradient-primary text-primary-foreground text-sm font-semibold shadow-soft hover:shadow-elevated transition-all disabled:opacity-50"
+                >
+                  <Save size={14} />
+                  {saving ? "Saving..." : "Save Event"}
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Events List */}
+          <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-1">
+            All Events ({churchEvents.length})
+          </p>
+
+          {eventsLoading ? (
+            <div className="text-center py-12">
+              <p className="text-sm text-muted-foreground">Loading...</p>
+            </div>
+          ) : churchEvents.length === 0 ? (
+            <div className="text-center py-12">
+              <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mx-auto mb-4">
+                <CalendarDays size={28} className="text-muted-foreground" />
+              </div>
+              <p className="text-sm text-foreground font-display mb-1">No Events</p>
+              <p className="text-xs text-muted-foreground">Add upcoming church events above.</p>
+            </div>
+          ) : (
+            churchEvents.map((event) => (
+              <div key={event.id} className="p-4 rounded-2xl bg-card border border-border shadow-card">
+                <div className="flex items-start justify-between gap-3 mb-2">
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-semibold text-foreground">{event.title}</p>
+                    {event.description && (
+                      <p className="text-xs text-muted-foreground mt-0.5 font-body">{event.description}</p>
+                    )}
+                  </div>
+                  <button
+                    onClick={async () => {
+                      if (confirm("Delete this event?")) {
+                        await deleteChurchEvent(event.id);
+                        refetchEvents();
+                        toast({ title: "Deleted", description: "Event removed." });
+                      }
+                    }}
+                    className="p-1.5 rounded-lg hover:bg-destructive/10 transition-colors shrink-0"
+                  >
+                    <Trash2 size={14} className="text-destructive" />
+                  </button>
+                </div>
+                <div className="flex items-center gap-3 text-[10px] text-muted-foreground">
+                  <span>{new Date(event.event_date).toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric" })}</span>
+                  <span>{new Date(event.event_date).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}</span>
+                  {event.location && <span>📍 {event.location}</span>}
                 </div>
               </div>
             ))
