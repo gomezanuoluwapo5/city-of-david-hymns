@@ -6,6 +6,7 @@ import { hymns } from "@/data/hymns";
 import DailyVerseCard from "@/components/DailyVerseCard";
 import PrayerRequestForm from "@/components/PrayerRequestForm";
 import ChurchEventsCard from "@/components/ChurchEventsCard";
+import TestimonyForm from "@/components/TestimonyForm";
 
 interface HomeScreenProps {
   onNavigate: (tab: string) => void;
