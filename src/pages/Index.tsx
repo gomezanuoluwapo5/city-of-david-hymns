@@ -49,6 +49,12 @@ const Index = () => {
     setTab("bible");
   };
 
+  const handleSplashFinish = useCallback(() => setShowSplash(false), []);
+
+  if (showSplash) {
+    return <SplashScreen onFinish={handleSplashFinish} />;
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <div className="max-w-lg mx-auto">
