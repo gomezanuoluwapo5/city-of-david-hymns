@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import BottomNav from "@/components/BottomNav";
 import HomeScreen from "@/components/HomeScreen";
 import HymnsScreen from "@/components/HymnsScreen";
@@ -7,10 +7,12 @@ import NotesScreen from "@/components/NotesScreen";
 import SettingsScreen from "@/components/SettingsScreen";
 import AdminPanel from "@/components/AdminPanel";
 import BibleGamesScreen from "@/components/BibleGamesScreen";
+import SplashScreen from "@/components/SplashScreen";
 import { getDarkMode } from "@/lib/store";
 import { initDailyVerseNotifications } from "@/lib/dailyVerse";
 
 const Index = () => {
+  const [showSplash, setShowSplash] = useState(true);
   const [tab, setTab] = useState("home");
   const [hymnToOpen, setHymnToOpen] = useState<number | null>(null);
   const [bibleToOpen, setBibleToOpen] = useState<{ book: string; chapter: number } | null>(null);
@@ -46,6 +48,12 @@ const Index = () => {
     setBibleToOpen({ book, chapter });
     setTab("bible");
   };
+
+  const handleSplashFinish = useCallback(() => setShowSplash(false), []);
+
+  if (showSplash) {
+    return <SplashScreen onFinish={handleSplashFinish} />;
+  }
 
   return (
     <div className="min-h-screen bg-background">
