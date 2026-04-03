@@ -50,7 +50,12 @@ const HomeScreen = ({ onNavigate, onOpenHymn, onOpenBible }: HomeScreenProps) =>
           <p className="text-xl font-display font-bold text-white drop-shadow-lg tracking-wide mt-1" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
             Church of God
           </p>
-          <p className="text-xs font-body font-bold text-white/80 uppercase tracking-[0.3em] mt-3">
+          <div className="w-10 h-px bg-white/30 mt-3 mb-2" />
+          <p className="text-[11px] font-body text-white/70 italic">General Overseer</p>
+          <p className="text-sm font-display font-semibold text-white/90 tracking-wide" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.3)' }}>
+            Rev. Akonasu P. Fanu
+          </p>
+          <p className="text-[9px] font-body font-bold text-white/60 uppercase tracking-[0.3em] mt-2">
             CDCCG
           </p>
         </div>
