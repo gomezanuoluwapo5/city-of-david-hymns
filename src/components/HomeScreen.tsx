@@ -35,11 +35,11 @@ const HomeScreen = ({ onNavigate, onOpenHymn, onOpenBible }: HomeScreenProps) =>
         
         <div className="relative flex flex-col items-center justify-center text-center px-6 pt-12 pb-16">
           {/* Logo */}
-          <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white/20 shadow-elevated mb-5 animate-scale-in bg-muted/30 backdrop-blur-sm">
+          <div className="w-36 h-36 rounded-full overflow-hidden border-4 border-white/30 shadow-elevated mb-5 animate-scale-in bg-white/90 backdrop-blur-sm">
             <img
               src={churchLogo}
               alt="City of David Covenant Church of God"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain p-1"
             />
           </div>
           
