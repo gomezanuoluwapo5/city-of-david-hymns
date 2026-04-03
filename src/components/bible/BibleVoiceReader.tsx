@@ -8,14 +8,44 @@ interface BibleVoiceReaderProps {
   chapter: number;
 }
 
+const AFRICAN_LANGS = ["en-NG", "en-GH", "en-ZA", "en-KE", "en-TZ"];
+
+const getAfricanVoice = (): SpeechSynthesisVoice | null => {
+  const voices = window.speechSynthesis.getVoices();
+  // Try African English locales first
+  for (const lang of AFRICAN_LANGS) {
+    const match = voices.find(v => v.lang === lang || v.lang.startsWith(lang));
+    if (match) return match;
+  }
+  // Fallback: look for voice names containing African country/region hints
+  const hint = voices.find(v =>
+    /nigeria|african|ghana|south.africa|kenya/i.test(v.name)
+  );
+  if (hint) return hint;
+  // Fallback: any English voice
+  return voices.find(v => v.lang.startsWith("en")) || null;
+};
+
 const BibleVoiceReader = ({ verses, bookName, chapter }: BibleVoiceReaderProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentVerse, setCurrentVerse] = useState(0);
   const [speed, setSpeed] = useState(1);
+  const [voiceReady, setVoiceReady] = useState(false);
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
   const isPlayingRef = useRef(false);
 
   const supported = typeof window !== "undefined" && "speechSynthesis" in window;
+
+  // Wait for voices to load (some browsers load them async)
+  useEffect(() => {
+    if (!supported) return;
+    const check = () => {
+      if (window.speechSynthesis.getVoices().length > 0) setVoiceReady(true);
+    };
+    check();
+    window.speechSynthesis.addEventListener("voiceschanged", check);
+    return () => window.speechSynthesis.removeEventListener("voiceschanged", check);
+  }, [supported]);
 
   const stop = useCallback(() => {
     window.speechSynthesis.cancel();
@@ -48,7 +78,15 @@ const BibleVoiceReader = ({ verses, bookName, chapter }: BibleVoiceReaderProps) 
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.rate = speed;
     utterance.pitch = 1;
-    utterance.lang = "en-US";
+
+    // Set African/Nigerian voice
+    const africanVoice = getAfricanVoice();
+    if (africanVoice) {
+      utterance.voice = africanVoice;
+      utterance.lang = africanVoice.lang;
+    } else {
+      utterance.lang = "en-NG";
+    }
 
     utteranceRef.current = utterance;
     setCurrentVerse(index);
